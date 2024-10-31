@@ -9,7 +9,7 @@ public class QuestUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*GameManager.Instance.QuestUI = this*/
+        QuestManager.Instance.QuestUI = this;
     }
 
     public void SetText(string text)

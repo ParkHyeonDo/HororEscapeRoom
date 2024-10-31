@@ -32,8 +32,12 @@ public class ItemEffect
 public class ItemData : ScriptableObject
 {
     public ItemType ItemType;
+    public string DisplayName;
+    public string Description;
+    public Sprite Icon;
 
     [Header("Comsume")]
+    public bool CanStack;
     public ConsumeType ConsumeType;
     public ItemEffect[] Effect;
 }

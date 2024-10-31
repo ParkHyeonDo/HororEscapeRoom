@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerController controller;
+    public PlayerController Controller;
+    public GameObject InteractTargetObject;
 
     private void Awake()
     {
-        controller = GetComponent<PlayerController>();
+        Controller = GetComponent<PlayerController>();
+        GameManager.Instance.Player = this;
     }
 }

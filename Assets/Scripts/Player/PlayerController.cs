@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     private readonly float _minXLook = -85f;
     private readonly float _maxXLook = 85f;
     private float _camXRot;
-    public float MouseSensitive;
     private Vector2 _mouseDelta;
+    public float MouseSensitive;
 
     public Rigidbody RigidBody;
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            Interaction.Invoke();
+            Interaction?.Invoke();
         }
     }
 

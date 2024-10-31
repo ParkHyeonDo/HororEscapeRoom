@@ -12,9 +12,9 @@ public class QuickSlot : MonoBehaviour
     public ItemSlot[] Slots;
 
     private PlayerController _controller;
-    //private PlayerCondition condition;
+    //private PlayerCondition condition;  ##
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         // controller = 인스턴스.controller
@@ -33,12 +33,12 @@ public class QuickSlot : MonoBehaviour
 
     public void WheelUpEquip(InputAction.CallbackContext context) 
     {
-        // 캐릭터 장착 장비 변경
+        //## 캐릭터 장착 장비 변경
     }
 
     public void WheelDownEquip(InputAction.CallbackContext context)
     {
-        // 캐릭터 장착 장비 변경
+        //## 캐릭터 장착 장비 변경
     }
 
     void AddItem() 
@@ -71,9 +71,13 @@ public class QuickSlot : MonoBehaviour
     {
         for (int i = 0; i < Slots.Length; i++) 
         {
-            if (Slots[i].Data != null) 
+            if (Slots[i].Data != null)
             {
                 Slots[i].Set();
+            }
+            else 
+            {
+                Slots[i].Clear();
             }
         }
     }
@@ -102,4 +106,6 @@ public class QuickSlot : MonoBehaviour
         return null;
     }
 
+
+    // 아이템 먹기를 여기서 구현해야 하나 ?
 }

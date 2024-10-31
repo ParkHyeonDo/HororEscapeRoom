@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 
 public class ItemSlot : MonoBehaviour
@@ -40,6 +41,13 @@ public class ItemSlot : MonoBehaviour
         {
             _outline.enabled = Equipped;
         }
+    }
+
+    public void Clear()
+    {
+        Data = null;
+        Icon.gameObject.SetActive(false);
+        QuantityText.text = string.Empty;
     }
 
 }

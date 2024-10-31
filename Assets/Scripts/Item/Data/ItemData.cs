@@ -7,7 +7,7 @@ public enum ItemType
 {
     Equipable,
     Consumable,
-    Readable,
+    Key
 }
 
 public enum ConsumeType

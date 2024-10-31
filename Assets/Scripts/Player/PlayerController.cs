@@ -9,8 +9,9 @@ public class PlayerController : MonoBehaviour
     public event Action Interaction;
 
     [Header("Move")]
-    public float Speed;
+    public float Speed = 2f;
     private Vector2 _moveInput;
+    [SerializeField] private LayerMask _stair;
 
     [Header("Look")]
     [SerializeField] private Transform CameraContainer;
@@ -71,7 +72,11 @@ public class PlayerController : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Performed/* && stamina > 0 */)
         {
-            Speed *= 1.5f;
+            Speed = 3.3f;
+        }
+        else if(context.phase == InputActionPhase.Canceled )
+        {
+            Speed = 2.0f;
         }
     }
 
@@ -85,6 +90,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        //계단 각도 계산 후 rigidbody Y벡터값 추가예정
+        //Ray[] rays = new Ray[2]
+        //{
+        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.5f), transform.forward),
+        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.0f), transform.forward)
+        //};
+
+
         Vector3 dir = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         dir *= Speed;
         dir.y = RigidBody.velocity.y;

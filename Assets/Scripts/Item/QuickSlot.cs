@@ -12,9 +12,10 @@ public class QuickSlot : MonoBehaviour
     public ItemSlot[] Slots;
 
     private PlayerController _controller;
+    private int _curEmptySlot;
     //private PlayerCondition condition;  ##
 
-    
+
     void Start()
     {
         // controller = 인스턴스.controller
@@ -106,6 +107,18 @@ public class QuickSlot : MonoBehaviour
         return null;
     }
 
+
+    public void UseItemInSlot(int slotIndex)
+    {
+        while (slotIndex + 1 < _curEmptySlot)
+        {
+            Slots[slotIndex].Icon.sprite = Slots[slotIndex + 1].Icon.sprite;
+            /*Slots[slotIndex].Item = Slots[slotIndex + 1].Item;*/
+            if (Slots[slotIndex + 1].Icon.sprite == null) break;
+            slotIndex++;
+        }
+        _curEmptySlot--;
+    }
 
     // 아이템 먹기를 여기서 구현해야 하나 ?
 }

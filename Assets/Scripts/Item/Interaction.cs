@@ -63,6 +63,7 @@ public class Interaction : MonoBehaviour
         else if (context.phase == InputActionPhase.Started && _interactGameObject != null && _interactGameObject.CompareTag("Note"))
         {
             //노트에 추가
+            //노트 오브젝트 삭제
         }
         else if (context.phase == InputActionPhase.Started && _interactGameObject != null && _interactGameObject.CompareTag("Things")) 
         {

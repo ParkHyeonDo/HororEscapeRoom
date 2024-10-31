@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum ItemType
 {
     Equipable,
     Consumable,
-    Readable,
+    Key,
 }
 
 public enum ConsumeType
@@ -21,23 +20,19 @@ public enum TargetStat
     Stamina
 }
 
-[Serializable]
-public class ItemEffect
-{
-    public TargetStat TargetStat;
-    public float Value;
-}
-
 [CreateAssetMenu(fileName = "Item", menuName = "New Item", order = 0)]
 public class ItemData : ScriptableObject
 {
     public ItemType ItemType;
+    [SerializeField] private int _maxStack;
+    public bool CanStack;
+    public int CurStack;
+    public Image ItemIcon;
     public string DisplayName;
     public string Description;
     public Sprite Icon;
 
     [Header("Comsume")]
-    public bool CanStack;
     public ConsumeType ConsumeType;
     public ItemEffect[] Effect;
 }

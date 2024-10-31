@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public enum ItemType
 {
     Equipable,
@@ -25,6 +26,7 @@ public class ItemData : ScriptableObject
     public ItemType ItemType;
     [SerializeField] private int _maxStack;
     public int CurStack;
+    public Image ItemIcon;
 
     [Header("Comsume")]
     public ItemEffect[] Effect;

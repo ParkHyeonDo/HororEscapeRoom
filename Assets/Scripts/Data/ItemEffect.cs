@@ -7,5 +7,3 @@ public class ItemEffect
     public TargetStat TargetStat;
     public float Value;
 }
-
-

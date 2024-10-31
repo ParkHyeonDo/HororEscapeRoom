@@ -33,7 +33,6 @@ public class ItemData : ScriptableObject
     public Sprite Icon;
 
     [Header("Comsume")]
-    public ConsumeType ConsumeType;
     public ItemEffect[] Effect;
 }
 

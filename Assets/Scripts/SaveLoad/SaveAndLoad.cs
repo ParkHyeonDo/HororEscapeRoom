@@ -10,7 +10,7 @@ public class SaveData
     public ItemSlot[] Slots;
     public int QuestIndex;
 }
-public class SaveAndLoad : MonoBehaviour
+public class SaveAndLoad : Singleton<SaveAndLoad>
 {
     private string _path;
     public List<Item> StartItems;

@@ -15,3 +15,5 @@ MonoBehaviour:
   ObjectName: MainDoor
   Description: Locked
   animator: {fileID: 0}
+  IsLock: 1
+  IsOpen: 0

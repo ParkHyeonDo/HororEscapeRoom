@@ -49,6 +49,8 @@ public class StartSceneUI : MonoBehaviour
     {
         Debug.Log("NewGameButton");
         SceneManager.LoadScene("MainScene");
+        AudioManager.Instance.StopLoop();
+        AudioManager.Instance.PlayBGM("ChangeChapter");
     }
     public void OnLoadGameButton()
     {

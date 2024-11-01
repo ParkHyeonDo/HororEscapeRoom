@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    { 
         if (_isPause == false)
         Move();
     }

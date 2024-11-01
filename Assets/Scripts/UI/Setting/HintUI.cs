@@ -17,4 +17,5 @@ public class HintUI : MonoBehaviour
         // 시작 시 UI 창을 비활성화
         noteDisplayWindow.SetActive(false);
     }
+    // 쪽지 정보를 설정하고 UI 창을 표시하는 메서드
 }

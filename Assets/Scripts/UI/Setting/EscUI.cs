@@ -22,19 +22,19 @@ public class EscUI : MonoBehaviour
     void Start()
     {
         if (HintButton == null)
-            HintButton = GameObject.Find("HintButton");
+            HintButton = GameObject.Find("Hint");
 
         if (ContinueButton == null)
-            ContinueButton = GameObject.Find("ContinueButton");
+            ContinueButton = GameObject.Find("Continue");
 
         if (SettingButton == null)
-            SettingButton = GameObject.Find("SettingButton");
+            SettingButton = GameObject.Find("Setting");
 
         if (MainMenuButton == null)
-            MainMenuButton = GameObject.Find("MainMenuButton");
+            MainMenuButton = GameObject.Find("MainMenu");
 
         if (ExitButton == null)
-            ExitButton = GameObject.Find("ExitButton");
+            ExitButton = GameObject.Find("Exit");
 
         if (SelectUI == null)
             SelectUI = GameObject.Find("EscUI");

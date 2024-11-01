@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
@@ -10,16 +11,20 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if(_instance == null)
+            _instance?.GetComponent<T>();
+            if (_instance == null)
             {
-                _instance.GetComponent<T>();
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject(typeof(T).Name);
-                    _instance = obj.AddComponent<T>();
-                }
+                _instance = new GameObject(typeof(T).Name).AddComponent<T>();
             }
             return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
         }
     }
 }

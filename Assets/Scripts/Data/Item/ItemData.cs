@@ -1,14 +1,9 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public enum ItemType
-{
-    Equipable,
-    Consumable,
-    Key,
-}
-
 public enum ConsumeType
 {
     Temporaly,
@@ -20,21 +15,20 @@ public enum TargetStat
     Stamina
 }
 
-[CreateAssetMenu(fileName = "Item", menuName = "New Item", order = 0)]
+[CreateAssetMenu(fileName = "Item", menuName = "New Item/Default", order = 0)]
 public class ItemData : ScriptableObject
 {
-    public ItemType ItemType;
-    [SerializeField] private int _maxStack;
-    public bool CanStack;
-    public int CurStack;
     public Image ItemIcon;
     public string DisplayName;
     public string Description;
     public Sprite Icon;
+    [Header("Stack")]
+    public bool CanStack;
+    [SerializeField] private int _maxStack;
+    public int CurStack;
 
-    [Header("Comsume")]
-    public ConsumeType ConsumeType;
-    public ItemEffect[] Effect;
+    public virtual void Interact()
+    {
+        //아이템 슬롯에 추가
+    }
 }
-
-

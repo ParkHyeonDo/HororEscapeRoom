@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour
         CurQuestIndex = 0;
     }
 
-    private void QuestUIUpdate()
+    public void QuestUIUpdate()
     {
         QuestUI.SetText("Quest : "+QuestDataList[CurQuestIndex].QuestContent);
     }

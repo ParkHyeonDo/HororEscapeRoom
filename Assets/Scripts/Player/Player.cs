@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerController Controller;
-    public GameObject InteractTargetObject;
+    public GameObject InteractTarget;
     public PlayerCondition Condition;
     public ItemData ItemData;
     public Action AddItem;

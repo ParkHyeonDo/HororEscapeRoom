@@ -7,6 +7,16 @@ public class Door : InteractableData
 
     public override void Interact()
     {
-        //문 상호작용 구현
+        Debug.Log("Locked");
     }
+
+    private void OpenDoor()
+    {
+
+    }
+    private void CloseDoor()
+    {
+
+    }
+
 }

@@ -62,19 +62,7 @@ public class Interact : MonoBehaviour
     }
     public void OnInteraction(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null )
-        {
-
-        }
-        else if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null)
-        {
-            //노트에 추가
-            //노트 오브젝트 삭제
-        }
-        else if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null )
-        {
-            //상호작용
-        }
+        
     }
 
 }

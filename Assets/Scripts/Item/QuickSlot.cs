@@ -30,7 +30,7 @@ public class QuickSlot : MonoBehaviour
         for (int i = 0; i < Slots.Length; i++) 
         {
             Slots[i] = SlotPanel.GetChild(i).GetComponent<ItemSlot>();
-            Slots[i].ItemIndex = i;
+            
         }
 
     }

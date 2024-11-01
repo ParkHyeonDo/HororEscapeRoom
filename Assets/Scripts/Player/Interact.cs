@@ -60,9 +60,5 @@ public class Interact : MonoBehaviour
             }
         }
     }
-    public void OnInteraction(InputAction.CallbackContext context)
-    {
-        
-    }
 
 }

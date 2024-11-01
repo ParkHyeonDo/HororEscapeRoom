@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public List<ItemObject> Items;
+    public List<Item> Items;
     public ItemSlot[] Slots;
     public int QuestIndex;
 }

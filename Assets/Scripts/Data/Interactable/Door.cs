@@ -17,7 +17,7 @@ public class Door : InteractableData
     {
         if (IsLock == true)
         {
-            //if(GameManager.Instance.Player.현재 아이템 == 키)
+            //if(GameManager.Instance.Player.현재 아이템 == 키 && 키 == 문 태그)
             //{
             //  IsLock = false;
             //  AudioManager.Instance.PlaySfx("LockedDoorOpen");

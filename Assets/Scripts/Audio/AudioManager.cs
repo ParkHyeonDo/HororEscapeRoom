@@ -16,24 +16,16 @@ public class AudioManager : Singleton<AudioManager>
 
     private void Awake()
     {
-        _sfxQueue = new Queue<GameObject>();
         if (_instance != null)
         {
             Destroy(gameObject);
-            _instance = this;
         }
         else
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            MakeAudioPool();
         }
-        for (int i = 0; i < 5; i++)
-        {
-            GameObject obj = new GameObject($"sfxPlayer{i + 1}");
-            obj.AddComponent<AudioSource>();
-            _sfxQueue.Enqueue(obj);
-            DontDestroyOnLoad(obj);
-        }
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -46,7 +38,21 @@ public class AudioManager : Singleton<AudioManager>
         else if (SceneManager.GetActiveScene().name == "MainScene")
         {
             PlayBGM("ChangeChapter");
+            StopLoop();
         }
+    }
+
+    public void MakeAudioPool()
+    {
+        _sfxQueue = new Queue<GameObject>();
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject obj = new GameObject($"sfxPlayer{i + 1}");
+            obj.AddComponent<AudioSource>();
+            _sfxQueue.Enqueue(obj);
+            DontDestroyOnLoad(obj);
+        }
+        
     }
 
     public void PlayBGM(string bgmName)

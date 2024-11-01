@@ -11,6 +11,8 @@ public class EquipTool : Equip
     [SerializeField]private float _clickRate;
     private bool _clicking;
     public float UseStamina;
+    private Equip _curEquip;
+    private GameObject _light;
 
     private Animator _animator;
     private Camera _camera;
@@ -19,13 +21,16 @@ public class EquipTool : Equip
     {
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
+        _light = GameObject.Find("Flash");
     }
 
-    public override void OnMouseClickInput()
+    public override void MouseClick()
     {
+        //_curEquip = 
         if (!_clicking) 
         {
             _clicking = true;
+            //animator.SetTrigger("Click");
             Invoke("OnCanClick", _clickRate);
         
         }
@@ -36,5 +41,23 @@ public class EquipTool : Equip
         _clicking = false;
     }
 
+    public void OnCharge() 
+    {
+        ItemData _itemdata = GameManager.Instance.Player.ItemData;
+        GameManager.Instance.Player.Condition.ChargeBattery(20); // ## 수정필요
+    }
+
+    public void OnFlash() 
+    {
+        if (!_light)
+        {
+            _light.SetActive(true);
+        }
+        else 
+        {
+            _light.SetActive(false);
+        }
+        
+    }
 }
 

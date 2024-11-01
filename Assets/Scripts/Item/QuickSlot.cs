@@ -11,6 +11,9 @@ public class QuickSlot : MonoBehaviour
     public Transform SlotPanel;
     public ItemSlot[] Slots;
 
+    private ItemData _selectedItem;    
+    private int _equipNum;
+
     //private PlayerController _controller;
     private int _curEmptySlot;
     private PlayerCondition _condition;
@@ -20,24 +23,62 @@ public class QuickSlot : MonoBehaviour
     {
         //_controller = GameManager.Instance.Player.Controller;
         _condition = GameManager.Instance.Player.Condition;
+        GameManager.Instance.Player.AddItem += AddItem;
 
         Slots = new ItemSlot[SlotPanel.childCount];
 
         for (int i = 0; i < Slots.Length; i++) 
         {
             Slots[i] = SlotPanel.GetChild(i).GetComponent<ItemSlot>();
+            Slots[i].ItemIndex = i;
         }
 
     }
 
     public void WheelUpEquip(InputAction.CallbackContext context) //휠업시 UI가 빗나는거
     {
-        //## 캐릭터 장착 장비 변경
+        ItemData _data = GameManager.Instance.Player.ItemData;
+        ItemData _newData = null;
+        for (int i = 0; i < Slots.Length; i++) 
+        {
+            if (_data == Slots[i].Data && Slots[i+1] != null)
+            {
+                _newData = Slots[i+1].Data;
+            } else if (_data == Slots[i].Data && Slots[i+1] == null) 
+            {
+                _newData = Slots[0].Data;
+            }
+        }
+        GameManager.Instance.Player.Equipment.EquipNew(_newData);
+        //## UpdateUI
     }
 
     public void WheelDownEquip(InputAction.CallbackContext context)
     {
-        //## 캐릭터 장착 장비 변경
+        ItemData _data = GameManager.Instance.Player.ItemData;
+        ItemData _newData = null;
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            if (_data == Slots[i].Data && i-1 <0 )
+            {
+                _newData = Slots[i-1].Data;
+            }
+            else if (_data == Slots[i].Data && i-1 >= 0 )
+            {
+                _newData = Slots[4].Data;
+            }
+        }
+        GameManager.Instance.Player.Equipment.EquipNew(_newData);
+        //## UpdateUI
+    }
+
+    public void ChangeEquip(InputAction.CallbackContext context) 
+    {
+        if (int.TryParse(context.control.name, out int _new)) 
+        {
+            GameManager.Instance.Player.Equipment.EquipNew(Slots[_new].Data);
+        }
+        //## UpdateUI
     }
 
     void AddItem() 

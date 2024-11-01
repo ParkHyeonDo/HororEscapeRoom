@@ -34,7 +34,7 @@ public class StartSceneUI : MonoBehaviour
             ExitButton = GameObject.Find("ExitButton");
 
         if (SettingButton == null)
-            SettingUI = GameObject.Find("SettingUI");
+            SettingButton = GameObject.Find("SettingButton");
 
         if (HowToPlayUI == null)
             HowToPlayUI = GameObject.Find("HowToPlayUI");

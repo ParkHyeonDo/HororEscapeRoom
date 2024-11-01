@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Interact : MonoBehaviour
     private float _range = 1;
     public LayerMask Interactable;
     private PlayerController _controller;
+    public TextMeshProUGUI Text;
 
     private void Start()
     {
@@ -35,4 +38,21 @@ public class Interact : MonoBehaviour
             }
         }
     }
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null )
+        {
+
+        }
+        else if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null)
+        {
+            //노트에 추가
+            //노트 오브젝트 삭제
+        }
+        else if (context.phase == InputActionPhase.Started && GameManager.Instance.Player.InteractTargetObject != null )
+        {
+            //상호작용
+        }
+    }
+
 }

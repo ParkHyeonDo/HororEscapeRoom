@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody RigidBody;
 
+    public Action WheelChangeEquip;
+    public Action NumChangeEquip;
+
     private void Awake()
     {
         RigidBody = GetComponent<Rigidbody>();

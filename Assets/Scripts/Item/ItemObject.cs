@@ -20,6 +20,5 @@ public class ItemObject : MonoBehaviour , IInteractable
         Destroy(gameObject);
     }
 
-
     
 }

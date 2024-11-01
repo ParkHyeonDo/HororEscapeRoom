@@ -24,7 +24,7 @@ public class Equipment : MonoBehaviour
     public void EquipNew(ItemData data) 
     {
         UnEquip();
-        // CurEquip = Instantiate(아이템데이터.프리팹).GC<Equip>
+        CurEquip = Instantiate(data.EquipPrefab, EquipParent).GetComponent<Equip>();
     }
 
 
@@ -41,7 +41,7 @@ public class Equipment : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Performed && CurEquip != null) 
         {
-            
+            CurEquip.MouseClick();
         }
     }
 }

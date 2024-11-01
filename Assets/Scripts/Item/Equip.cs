@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Equip : MonoBehaviour
 {
-    public virtual void OnMouseClickInput() 
+    public virtual void MouseClick() 
     {
     
     }

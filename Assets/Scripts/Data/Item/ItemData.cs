@@ -22,6 +22,7 @@ public class ItemData : ScriptableObject
     public string DisplayName;
     public string Description;
     public Sprite Icon;
+    public GameObject EquipPrefab;
     [Header("Stack")]
     public bool CanStack;
     [SerializeField] private int _maxStack;

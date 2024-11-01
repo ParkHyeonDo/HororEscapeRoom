@@ -14,8 +14,10 @@ public class ItemSlot : MonoBehaviour
     public ItemData Data;
     public Image Icon;
     public QuickSlot QuickSlot;
+    
     public TextMeshProUGUI QuantityText; 
     private Outline _outline;
+    public int ItemIndex;
 
     public bool Equipped;
     public int Quantity;

@@ -5,8 +5,4 @@ public class Key : ItemData
 {
     private string Tag;
 
-    public override void Interact()
-    {
-        // 키 상호작용 구현
-    }
 }

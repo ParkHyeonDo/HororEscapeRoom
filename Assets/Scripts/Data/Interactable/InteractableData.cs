@@ -9,6 +9,6 @@ public class InteractableData : ScriptableObject
 
     public virtual void Interact()
     {
-        //상호작용 구현
+        Debug.Log("interact");
     }
 }

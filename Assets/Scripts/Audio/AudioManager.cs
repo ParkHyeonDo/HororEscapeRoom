@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -11,11 +12,38 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] private AudioClip[] _bgmArr;
     [SerializeField] private AudioClip[] _sfxArr;
+    public SceneManager SceneManager;
 
     private void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+            MakeAudioPool();
+        }
         DontDestroyOnLoad(gameObject);
+    }
 
+    private void Start()
+    {
+        _bgmPlayer = GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().name == "StartScene")
+        {
+            PlayBGM("StartSceneBGM");
+        }
+        else if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            PlayBGM("ChangeChapter");
+            StopLoop();
+        }
+    }
+
+    public void MakeAudioPool()
+    {
         _sfxQueue = new Queue<GameObject>();
         for (int i = 0; i < 5; i++)
         {
@@ -24,10 +52,6 @@ public class AudioManager : Singleton<AudioManager>
             _sfxQueue.Enqueue(obj);
             DontDestroyOnLoad(obj);
         }
-    }
-
-    private void Start()
-    {
         
     }
 
@@ -66,5 +90,15 @@ public class AudioManager : Singleton<AudioManager>
         obj.GetComponent<AudioSource>().clip = audioClip;
         obj.GetComponent<AudioSource>().Play();
         _sfxQueue.Enqueue(obj);
+    }
+
+    public void LoopOn()
+    {
+        _bgmPlayer.loop = true;
+    }
+
+    public void StopLoop()
+    {
+        _bgmPlayer.loop = false;
     }
 }

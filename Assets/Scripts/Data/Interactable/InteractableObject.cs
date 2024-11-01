@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour, IInteractable
+public class InteractableObject: MonoBehaviour, IInteractable
 {
     public InteractableData Data;
 

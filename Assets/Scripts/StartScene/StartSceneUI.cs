@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 public class StartSceneUI : MonoBehaviour
 {
 
-    [Header("Select Button")]
+    [Header("Button")]
     public GameObject NewGameButton;
     public GameObject LoadGameButton;
     public GameObject HowToPlayButton;
     public GameObject ExitButton;
-    public GameObject OtionButton;
+    public GameObject SettingButton;
 
-    [Header("Select UI")]
+    [Header("UI")]
     public GameObject HowToPlayUI;
-    public GameObject OptionUI;
+    public GameObject SettingUI;
 
     void Start()
 
@@ -33,14 +33,14 @@ public class StartSceneUI : MonoBehaviour
         if (ExitButton == null)
             ExitButton = GameObject.Find("ExitButton");
 
-        if (OtionButton == null)
-            HowToPlayUI = GameObject.Find("HowToPlayUI");
+        if (SettingButton == null)
+            SettingUI = GameObject.Find("SettingUI");
 
         if (HowToPlayUI == null)
             HowToPlayUI = GameObject.Find("HowToPlayUI");
         
-        if (OptionUI == null)
-            OptionUI = GameObject.Find("OptionUI");
+        if (SettingUI == null)
+            SettingUI = GameObject.Find("SettingUI");
 
         CloseUI();
     }
@@ -58,9 +58,9 @@ public class StartSceneUI : MonoBehaviour
     {
         HowToPlayUI.SetActive(true);
     }
-    public void OnOptionButton()
+    public void OnSettingButton()
     {
-        OptionUI.SetActive(true);
+        SettingUI.SetActive(true);
     }
 
     public void OnExitButton()
@@ -72,6 +72,6 @@ public class StartSceneUI : MonoBehaviour
     public void CloseUI()
     {
         HowToPlayUI.SetActive(false);
-        OptionUI.SetActive(false);
+        SettingUI.SetActive(false);
     }
 }

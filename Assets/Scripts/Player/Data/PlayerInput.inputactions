@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "QuickSlotButton",
+                    "type": "PassThrough",
+                    "id": "075d6552-143c-4bfd-8b81-eb9f6ffa5a87",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -182,12 +191,34 @@
                 },
                 {
                     "name": "",
-                    "id": "fdaec093-9075-4aef-8794-3ea562d5a71e",
+                    "id": "b1537d0a-ba6b-4532-afc9-855e474b6e7c",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Wheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "843355ef-b2bc-466b-aac3-4b84c3d6dc63",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QuickSlotButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14991512-adff-4007-a855-0cf703ea661b",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QuickSlotButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

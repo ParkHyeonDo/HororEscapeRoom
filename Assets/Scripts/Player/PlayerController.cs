@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public event Action Interaction;
+    public event Action OnNote;
+    public event Action OnPause;
+    public event Action WheelUp;
+    public event Action WheelDown;
 
     [Header("Move")]
     public float Speed = 2f;
@@ -19,7 +24,11 @@ public class PlayerController : MonoBehaviour
     private readonly float _maxXLook = 85f;
     private float _camXRot;
     private Vector2 _mouseDelta;
+    private bool _isNoteON;
     public float MouseSensitive;
+    private float _mouseScrollDelta;
+
+    private bool _isPause;
 
     public Rigidbody RigidBody;
 
@@ -33,16 +42,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        OnPause += Pause;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
-    {
+    { 
+        if (_isPause == false)
         Move();
     }
 
     private void LateUpdate()
     {
+        if(_isPause == false)
         Look();
     }
 
@@ -83,6 +95,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnNoteUI(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            OnNote?.Invoke();
+        }
+    }
+
+    public void OnTempPause(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            OnPause?.Invoke();
+        }
+    }
+
+    public void OnWheel(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            _mouseScrollDelta = context.ReadValue<Vector2>().y;
+            if(_mouseScrollDelta > 0)
+            {
+                WheelUp?.Invoke();
+            }
+            else if(_mouseScrollDelta < 0)
+            {
+                WheelDown?.Invoke();
+            }
+        }
+    }
+
+    public void OnQuickSlotButton(InputAction.CallbackContext context)
+    {
+        Debug.Log(context);
+    }
+
     private void Look()
     {
         _camXRot += _mouseDelta.y * MouseSensitive;
@@ -106,5 +155,19 @@ public class PlayerController : MonoBehaviour
         dir.y = RigidBody.velocity.y;
 
         RigidBody.velocity = dir;
+    }
+
+    private void Pause()
+    {
+        if (_isPause == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            _isPause = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            _isPause = true;
+        }
     }
 }

@@ -6,4 +6,9 @@ public class InteractableData : ScriptableObject
 {
     public string ObjectName;
     public string Description;
+
+    public virtual void Interact()
+    {
+        //상호작용 구현
+    }
 }

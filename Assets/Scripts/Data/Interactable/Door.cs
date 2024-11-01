@@ -4,4 +4,9 @@
 public class Door : InteractableData
 {
     [SerializeField] private Animator animator;
+
+    public override void Interact()
+    {
+        //문 상호작용 구현
+    }
 }

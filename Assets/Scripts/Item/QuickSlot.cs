@@ -11,17 +11,15 @@ public class QuickSlot : MonoBehaviour
     public Transform SlotPanel;
     public ItemSlot[] Slots;
 
-    private PlayerController _controller;
+    //private PlayerController _controller;
     private int _curEmptySlot;
-    //private PlayerCondition condition;  ##
+    private PlayerCondition _condition;
 
 
     void Start()
     {
-        // controller = 인스턴스.controller
-        // condition = 인스턴스.condition
-        // controller.휠업연결 += WheelUpEquip;
-        // controller.휠다운 연결 += WheelDownEquip;
+        //_controller = GameManager.Instance.Player.Controller;
+        _condition = GameManager.Instance.Player.Condition;
 
         Slots = new ItemSlot[SlotPanel.childCount];
 
@@ -32,7 +30,7 @@ public class QuickSlot : MonoBehaviour
 
     }
 
-    public void WheelUpEquip(InputAction.CallbackContext context) 
+    public void WheelUpEquip(InputAction.CallbackContext context) //휠업시 UI가 빗나는거
     {
         //## 캐릭터 장착 장비 변경
     }
@@ -44,7 +42,7 @@ public class QuickSlot : MonoBehaviour
 
     void AddItem() 
     {
-        ItemData _data = null; //## 수정필요
+        ItemData _data = GameManager.Instance.Player.ItemData;
 
         if (_data.CanStack) 
         {
@@ -53,7 +51,7 @@ public class QuickSlot : MonoBehaviour
             {
                 _slot.Quantity++;
                 UpdateUI();
-                // ## 인스턴스에 저장되있는 아이템데이터 초기화
+                GameManager.Instance.Player.ItemData = null;
                 return;
             }
         }
@@ -63,7 +61,7 @@ public class QuickSlot : MonoBehaviour
             _emptySlot.Data = _data;
             _emptySlot.Quantity = 1;
             UpdateUI();
-            // ## 인스턴스에 저장되있는 아이템데이터 초기화
+            GameManager.Instance.Player.ItemData = null;
             return;
         }
     }
@@ -113,7 +111,7 @@ public class QuickSlot : MonoBehaviour
         while (slotIndex + 1 < _curEmptySlot)
         {
             Slots[slotIndex].Icon.sprite = Slots[slotIndex + 1].Icon.sprite;
-            /*Slots[slotIndex].Item = Slots[slotIndex + 1].Item;*/
+            Slots[slotIndex].Data = Slots[slotIndex + 1].Data;
             if (Slots[slotIndex + 1].Icon.sprite == null) break;
             slotIndex++;
         }

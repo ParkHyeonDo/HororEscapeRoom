@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+
+public class Equipment : MonoBehaviour
+{
+    public Equip CurEquip;
+    public Transform EquipParent;
+
+    private PlayerController _controller;
+    private PlayerCondition _condition;
+
+    private void Start()
+    {
+        _controller = GetComponent<PlayerController>();
+        _condition = GetComponent<PlayerCondition>();
+    }
+
+    public void EquipNew(ItemData data) 
+    {
+        UnEquip();
+        // CurEquip = Instantiate(아이템데이터.프리팹).GC<Equip>
+    }
+
+
+    public void UnEquip() 
+    {
+        if (CurEquip != null) 
+        { 
+            Destroy(CurEquip.gameObject);
+            CurEquip = null;
+        }
+    }
+
+    public void MouseClick(InputAction.CallbackContext context) 
+    {
+        if (context.phase == InputActionPhase.Performed && CurEquip != null) 
+        {
+            
+        }
+    }
+}
+

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Item/Equip.cs.meta
-guid: 66b56a629261e4140948cbe4e488c03d
-========
-guid: b69803d9e19157e418f2fc9f12cec16a
->>>>>>>> Dev:Assets/Scripts/SaveLoad/SaveAndLoad.cs.meta
+guid: 96df7548881a0594ca73f0319d1ade88
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

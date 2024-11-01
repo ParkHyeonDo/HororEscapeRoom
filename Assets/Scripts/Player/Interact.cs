@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
     private PlayerController _controller;
+    public TextMeshProUGUI Text;
 
     [SerializeField] private GameObject _target;
 
@@ -58,4 +60,5 @@ public class Interact : MonoBehaviour
             }
         }
     }
+
 }

@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4625657425386649898, guid: 1b6e4c95290fffd4fbf65ce20fd32858, type: 3}
+      propertyPath: CScreen
+      value: 
+      objectReference: {fileID: 1758764429}
+    - target: {fileID: 7643445298441257999, guid: 1b6e4c95290fffd4fbf65ce20fd32858, type: 3}
+      propertyPath: ConversationScreen
+      value: 
+      objectReference: {fileID: 1758764429}
     - target: {fileID: 8566711313682284908, guid: 1b6e4c95290fffd4fbf65ce20fd32858, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -411,6 +419,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5459672619484090513, guid: 6e322e25491eec544b05310ee02114b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5655544234077767529, guid: 6e322e25491eec544b05310ee02114b0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -552,6 +564,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 846967a6c9d66b84a986bba6dba8566e, type: 3}
+--- !u!114 &1758764429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5885280255581920506, guid: 6e322e25491eec544b05310ee02114b0, type: 3}
+  m_PrefabInstance: {fileID: 1489401705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7bb450b7d1a4364d912f0d827e60f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1997864850
 PrefabInstance:
   m_ObjectHideFlags: 0

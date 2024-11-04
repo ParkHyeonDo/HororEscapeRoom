@@ -9,6 +9,7 @@ public class Interact : MonoBehaviour
 {
     private PlayerController _controller;
     public TextMeshProUGUI Text;
+    public ConversationScreen CScreen;
 
     [SerializeField] private GameObject _target;
 
@@ -33,18 +34,18 @@ public class Interact : MonoBehaviour
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                item.GetPrompt();
+                CScreen.SetText(item.GetPrompt()).SetActive(true);
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                obj.GetPrompt();
+                CScreen.SetText(obj.GetPrompt()).SetActive(true);
             }
         }
         else
         {
-            Debug.Log("?");
+            CScreen.SetText(string.Empty).SetActive(false);
             _target = null;
             GameManager.Instance.Player.InteractTarget = null;
         }

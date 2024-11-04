@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 2f;
     private Vector2 _moveInput;
     [SerializeField] private LayerMask _stair;
+    public float MaxSlopeAngle;
 
     [Header("Look")]
     [SerializeField] private Transform CameraContainer;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public Action WheelChangeEquip;
     public Action NumChangeEquip;
+    
 
     private void Awake()
     {
@@ -142,19 +145,19 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //계단 각도 계산 후 rigidbody Y벡터값 추가예정
-        //Ray[] rays = new Ray[2]
-        //{
-        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.5f), transform.forward),
-        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.0f), transform.forward)
-        //};
-
-
         Vector3 dir = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         dir *= Speed;
-        dir.y = RigidBody.velocity.y;
+        Ray frontRay = new Ray(CameraContainer.position + Vector3.up * 0.1f, dir);
 
+        RaycastHit hit; 
+        if (Physics.Raycast(frontRay, out hit, 1f, _stair))
+        {
+            dir.y = 1.5f;
+        }
+        else
+            dir.y = RigidBody.velocity.y;
         RigidBody.velocity = dir;
+        
     }
 
     private void Pause()
@@ -169,5 +172,18 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             _isPause = true;
         }
+    }
+
+    public bool OnStair()
+    {
+        Ray frontRay = new Ray(transform.position, Vector3.forward);
+        RaycastHit hit;
+        if(Physics.Raycast(frontRay, out hit, 2f, _stair))
+        {
+            float angle = Vector3.Angle(Vector3.up, hit.normal);
+            Debug.Log(angle);
+            return angle != 0f && angle < MaxSlopeAngle;
+        }
+        return false;
     }
 }

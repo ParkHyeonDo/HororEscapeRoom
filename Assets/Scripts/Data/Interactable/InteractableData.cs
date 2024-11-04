@@ -7,7 +7,6 @@ public class InteractableData : ScriptableObject
 {
     public string ObjectName;
     public string Description;
-    public AudioClip[] Clip;
 
     public virtual void Interact()
     {

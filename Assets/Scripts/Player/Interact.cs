@@ -33,18 +33,18 @@ public class Interact : MonoBehaviour
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                item.GetPrompt();
+                
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                obj.GetPrompt();
+                
             }
         }
         else
         {
-            Debug.Log("?");
+            
             _target = null;
             GameManager.Instance.Player.InteractTarget = null;
         }

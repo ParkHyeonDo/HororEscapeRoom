@@ -25,22 +25,26 @@ public class Interact : MonoBehaviour
     private void Update()
     {
         Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-
+        Debug.DrawRay(transform.position, transform.forward, Color.red, _range);
         if (Physics.Raycast(ray, out RaycastHit hit, _range, TargetLayer))
         {
+            
             if (hit.collider.gameObject.TryGetComponent<Item>(out Item item))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
+                item.GetPrompt();
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
+                obj.GetPrompt();
             }
         }
         else
         {
+            Debug.Log("?");
             _target = null;
             GameManager.Instance.Player.InteractTarget = null;
         }

@@ -30,6 +30,8 @@ public class ItemData : ScriptableObject
 
     public virtual void Interact()
     {
-        //아이템 슬롯에 추가
+        GameManager.Instance.Player.ItemData = this;
+        GameManager.Instance.Player.AddItem?.Invoke();
+        
     }
 }

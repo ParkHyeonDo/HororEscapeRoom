@@ -23,7 +23,8 @@ public class Equipment : MonoBehaviour
 
     public void EquipNew(ItemData data) 
     {
-        UnEquip();
+        //UnEquip();
+        Debug.Log(data);
         CurEquip = Instantiate(data.EquipPrefab, EquipParent).GetComponent<Equip>();
     }
 

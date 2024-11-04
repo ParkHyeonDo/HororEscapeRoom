@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Equipment Equipment;
     public ItemData ItemData;
     public Action AddItem;
-    public ConversationScreen ConversationScreen;
+    
 
     private void Awake()
     {

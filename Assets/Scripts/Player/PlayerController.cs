@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private IEnumerator _coroutine;
     public event Action Interaction;
     public event Action OnNote;
     public event Action OnPause;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private bool _isPause;
 
     public Rigidbody RigidBody;
+    private PlayerCondition _condition;
 
     public Action WheelChangeEquip;
     public Action NumChangeEquip;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         RigidBody = GetComponent<Rigidbody>();
+        _condition = GetComponent<PlayerCondition>();
     }
 
     private void Start()
@@ -85,13 +89,26 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed/* && stamina > 0 */)
+        if(context.phase == InputActionPhase.Performed && _condition.Stamina.CurValue > 0 )
         {
             Speed = 3.3f;
+            _coroutine = UseStamina();
+            StartCoroutine(_coroutine);
         }
-        else if(context.phase == InputActionPhase.Canceled )
+        else if(context.phase == InputActionPhase.Canceled || _condition.Stamina.CurValue < 5)
         {
+            Debug.Log("왜 안들어와");
             Speed = 2.0f;
+            StopCoroutine(_coroutine);
+        }
+    }
+
+    IEnumerator UseStamina() 
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            _condition.UseStamina(2);
         }
     }
 
@@ -153,7 +170,6 @@ public class PlayerController : MonoBehaviour
         Vector3 dir = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         dir *= Speed;
         dir.y = RigidBody.velocity.y;
-
         RigidBody.velocity = dir;
     }
 

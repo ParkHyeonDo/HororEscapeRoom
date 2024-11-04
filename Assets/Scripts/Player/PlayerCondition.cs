@@ -10,14 +10,15 @@ public class PlayerCondition : MonoBehaviour
 {
     public ConditionUI ConditionUI;
 
-    Condition _stamina { get { return ConditionUI.Stamina; } }
-    Condition _battery { get { return ConditionUI.Battery; } }
+    [HideInInspector]
+    public Condition Stamina { get { return ConditionUI.Stamina; } }
+    public Condition Battery { get { return ConditionUI.Battery; } }
     // ## _mental ?
 
 
     private void Update()
     {
-        _stamina.Add(_stamina.PassiveValue * Time.deltaTime);
+        Stamina.Add(Stamina.PassiveValue * Time.deltaTime);
 
         UseBattery();
     }
@@ -25,24 +26,24 @@ public class PlayerCondition : MonoBehaviour
 
     public void UseBattery() 
     {
-        if (_battery.CurValue > 0 /*## && bool 손전등 == true */)
+        if (Battery.CurValue > 0 /*## && bool 손전등 == true */)
         {
-            _battery.Subtract(_battery.PassiveValue * Time.deltaTime);
+            Battery.Subtract(Battery.PassiveValue * Time.deltaTime);
         }
     }
 
     public void ChargeBattery(float amount) 
     {
-        _battery.Add(amount);
+        Battery.Add(amount);
     }
 
     public void UseStamina(float amount) 
     {
-        if (_stamina.CurValue - amount < 0f) 
+        if (Stamina.CurValue - amount < 0f) 
         {
             return;
         }
-        _stamina.Subtract(amount);
+        Stamina.Subtract(amount);
     }
 
     private void Die() 

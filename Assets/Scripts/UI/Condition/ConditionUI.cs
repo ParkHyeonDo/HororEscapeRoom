@@ -9,6 +9,6 @@ public class ConditionUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*CharacterManager.Instance.Player.PlayerCondition.ConditionUI = this*/
+        GameManager.Instance.Player.Condition.ConditionUI = this;
     }
 }

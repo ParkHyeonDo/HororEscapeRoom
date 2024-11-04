@@ -76,7 +76,7 @@ public class QuickSlot : MonoBehaviour
     {
         if (int.TryParse(context.control.name, out int _new)) 
         {
-            GameManager.Instance.Player.Equipment.EquipNew(Slots[_new].Data);
+            GameManager.Instance.Player.Equipment.EquipNew(Slots[_new-1].Data);
         }
         //## UpdateUI
     }
@@ -84,14 +84,14 @@ public class QuickSlot : MonoBehaviour
     void AddItem() 
     {
         ItemData _data = GameManager.Instance.Player.ItemData;
-
+        
         if (_data.CanStack) 
         {
             ItemSlot _slot = GetItemStack(_data);
             if (_slot != null) 
             {
                 _slot.Quantity++;
-                UpdateUI();
+                UpdateUI(_slot);
                 GameManager.Instance.Player.ItemData = null;
                 return;
             }
@@ -101,14 +101,15 @@ public class QuickSlot : MonoBehaviour
         {
             _emptySlot.Data = _data;
             _emptySlot.Quantity = 1;
-            UpdateUI();
+            UpdateUI(_emptySlot);
             GameManager.Instance.Player.ItemData = null;
             return;
         }
     }
 
-    private void UpdateUI()
+    public void UpdateUI(ItemSlot slot)
     {
+       
         for (int i = 0; i < Slots.Length; i++) 
         {
             if (Slots[i].Data != null)

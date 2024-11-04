@@ -34,6 +34,7 @@ public class Interact : MonoBehaviour
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
+                Debug.Log(item.GetPrompt());
                 CScreen.SetText(item.GetPrompt()).SetActive(true);
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))

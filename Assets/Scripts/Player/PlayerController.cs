@@ -161,12 +161,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_isPause == true)
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
             _isPause = false;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
             _isPause = true;
         }
     }

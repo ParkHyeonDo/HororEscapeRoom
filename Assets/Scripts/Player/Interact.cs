@@ -45,6 +45,12 @@ public class Interact : MonoBehaviour
                 ConversationScreen.SetText(obj.GetPrompt()).SetActive(true);
 
             }
+            else if (hit.collider.gameObject.TryGetComponent<AnimatedObject>(out AnimatedObject ani))
+            {
+                _target = hit.collider.gameObject;
+                GameManager.Instance.Player.InteractTarget = _target;
+                ConversationScreen.SetText(ani.GetPrompt()).SetActive(true);
+            }
         }
         else
         {
@@ -65,6 +71,10 @@ public class Interact : MonoBehaviour
             if (_target.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 obj.Interact();
+            }
+            if(_target.TryGetComponent<AnimatedObject>(out AnimatedObject ani))
+            {
+                ani.Interact();
             }
         }
     }

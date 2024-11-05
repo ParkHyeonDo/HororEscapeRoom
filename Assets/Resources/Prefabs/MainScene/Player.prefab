@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 8114580669262398212}
   - component: {fileID: 6859444220608131402}
   - component: {fileID: 120695207765713605}
+  - component: {fileID: 1695369670986686819}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -493,7 +494,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -604,6 +605,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurEquip: {fileID: 0}
   EquipParent: {fileID: 5367014882636924313}
+--- !u!114 &1695369670986686819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2967545070846411940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f690e24c1d601448794370f41d9d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSoundClip: {fileID: 8300000, guid: b1a393877d361b44c93cc6b59bb2ed06, type: 3}
+  footstepThreshold: 1
+  footstepRate: 0.7
 --- !u!1 &8207587832008232457
 GameObject:
   m_ObjectHideFlags: 0

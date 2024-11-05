@@ -1,17 +1,25 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InteractableObject", menuName = "New InteractableObject/Door", order = 1)]
-public class Door : InteractableData
+[CreateAssetMenu(fileName = "Door", menuName = "New AnimatedObject/Door", order = 0)]
+public class Door : AnimatedData
 {
-    [SerializeField] private Animator animator;
+    private Animator _animator;
     public bool IsLock;
     public bool IsOpen;
 
-    public override void Interact()
+    public override void Interact(Animator animator)
     {
-        OpenDoor();
-        CloseDoor();
+        base.Interact(animator);
+        _animator = animator;
+        if(IsOpen)
+        {
+            CloseDoor();
+        }
+        else
+        {
+            OpenDoor();
+        }
     }
 
     private void OpenDoor()
@@ -22,17 +30,19 @@ public class Door : InteractableData
             {
                 IsLock = false;
                 AudioManager.Instance.PlaySfx("LockedDoorOpen");
+                _animator.SetBool("isLock",IsLock);
                 Destroy(GameManager.Instance.Player.ItemData.GameObject());
                 return;
             }
             AudioManager.Instance.PlaySfx("DoorLocked");
             return;
         }
-        else
+        else if(IsLock == false)
         {
             //애니메이션 실행
             AudioManager.Instance.PlaySfx("OpenDoor");
             IsOpen = true;
+            _animator.SetBool("isOpen", IsOpen);
             return;
         }
     }
@@ -43,6 +53,7 @@ public class Door : InteractableData
             //애니메이션 실행
             AudioManager.Instance.PlaySfx("CloseDoor");
             IsOpen = false;
+            _animator.SetBool("isOpen", IsOpen);
             return;
         }
     }

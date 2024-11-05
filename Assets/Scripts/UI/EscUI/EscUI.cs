@@ -59,7 +59,7 @@ public class EscUI : MonoBehaviour
         WarningUI.SetActive(false);
         ESCUI.SetActive(false);
 
-        GameManager.Instance.Player.Controller.OnPause += OnOffUI;
+        //GameManager.Instance.Player.Controller.OnPause += OnOffUI;
     }
 
     public void OnHintButton()
@@ -122,18 +122,18 @@ public class EscUI : MonoBehaviour
             playerController.UpdatePauseState(true);
         }
     }
-    private void OnOffUI()
-    {
-        if (ESCUI != null)
-        {
-            if (ESCUI.activeSelf)
-            {
-                ESCUI.SetActive(false);
-            }
-            else
-            {
-                ESCUI.SetActive(true);
-            }
-        }
-    }
+    //private void OnOffUI()
+    //{
+    //    if (ESCUI != null)
+    //    {
+    //        if (ESCUI.activeSelf)
+    //        {
+    //            ESCUI.SetActive(false);
+    //        }
+    //        else
+    //        {
+    //            ESCUI.SetActive(true);
+    //        }
+    //    }
+    //}
 }

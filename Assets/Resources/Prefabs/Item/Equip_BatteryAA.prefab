@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4023726348710151922}
   - component: {fileID: -6574149008275064424}
+  - component: {fileID: -2752032354090616732}
   m_Layer: 9
   m_Name: Equip_BatteryAA
-  m_TagString: Item
+  m_TagString: ConsumableEquip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clickRate: 1
   UseStamina: 0
+--- !u!114 &-2752032354090616732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869502619004516779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e065f4a5c6ba744a5e2071276b7a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemData: {fileID: 11400000, guid: 160163791a083af4e9e78f20480f87ab, type: 2}
 --- !u!1001 &3542667346523582637
 PrefabInstance:
   m_ObjectHideFlags: 0

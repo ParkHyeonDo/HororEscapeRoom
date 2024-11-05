@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Item
+  - Equip
+  - ConsumableEquip
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Stair
   - Player
   - Interactable
-  - Item
+  - ConsumableEquip
   - Door
   - Equip
   - 

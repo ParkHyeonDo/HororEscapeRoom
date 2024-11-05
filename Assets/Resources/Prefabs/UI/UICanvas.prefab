@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ???
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1086,8 +1086,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1353,8 +1353,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1687,19 +1687,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5963549241114163324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3766339287353676803}
-        m_TargetAssemblyTypeName: HintUI, Assembly-CSharp
-        m_MethodName: DisplayHint
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: dw
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &279868540847892972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,19 +2103,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3493900178856193211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3766339287353676803}
-        m_TargetAssemblyTypeName: HintUI, Assembly-CSharp
-        m_MethodName: DisplayHint
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: dw
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &930147858664192478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2619,19 +2595,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2166742191493885782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3766339287353676803}
-        m_TargetAssemblyTypeName: HintUI, Assembly-CSharp
-        m_MethodName: DisplayHint
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: dw
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1309927011604358177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4305,8 +4269,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4652,19 +4616,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3524111822118462255}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3766339287353676803}
-        m_TargetAssemblyTypeName: HintUI, Assembly-CSharp
-        m_MethodName: DisplayHint
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: dw
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &9051846110443529171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4782,8 +4734,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ee526dc822a9644bc91ccff8529a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteNameText: {fileID: 2139929112560080157}
-  hintText: {fileID: 577393971371205509}
+  noteNameTexts:
+  - {fileID: 2139929112560080157}
+  - {fileID: 4740764021975922198}
+  - {fileID: 7793833666362607579}
+  - {fileID: 7728484978748935858}
+  hintTexts:
+  - {fileID: 577393971371205509}
+  - {fileID: 8018564657887276702}
+  - {fileID: 1834287659051862813}
+  - {fileID: 2290430651942319955}
   noteDisplayWindow: {fileID: 5690177069895268288}
   hintButtons:
   - {fileID: 3940036132622277416}
@@ -4795,6 +4755,7 @@ MonoBehaviour:
   - {fileID: 1116092105330915642}
   - {fileID: 7152984480130467510}
   - {fileID: 5776175911439854621}
+  currentNoteIndex: 0
 --- !u!1 &7152984480130467510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5174,8 +5135,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ???
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5442,8 +5403,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ???
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5785,8 +5746,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ???
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6101,8 +6062,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
+  m_sharedMaterial: {fileID: 8782266269754384022, guid: 26edf972ddcabf2439fd47f09f18f58b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

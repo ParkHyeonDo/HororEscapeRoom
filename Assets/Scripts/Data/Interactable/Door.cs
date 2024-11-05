@@ -18,7 +18,7 @@ public class Door : InteractableData
     {
         if (IsLock == true)
         {
-            if (GameManager.Instance.Player.ItemData.GetType() == typeof(Key))
+            if (GameManager.Instance.Player.ItemData?.GetType() == typeof(Key))
             {
                 IsLock = false;
                 AudioManager.Instance.PlaySfx("LockedDoorOpen");

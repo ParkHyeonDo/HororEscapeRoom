@@ -408,7 +408,8 @@ MonoBehaviour:
   Speed: 2
   _stair:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  MaxSlopeAngle: 0
   CameraContainer: {fileID: 7336653235386770568}
   MouseSensitive: 0.1
   RigidBody: {fileID: 0}

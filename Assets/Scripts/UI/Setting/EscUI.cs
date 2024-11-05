@@ -15,7 +15,7 @@ public class EscUI : MonoBehaviour
 
 
     [Header("UI")]
-    public GameObject SelectUI;
+    public GameObject ESCUI;
     public GameObject SettingUI;
     public GameObject HintUI;
 
@@ -36,8 +36,8 @@ public class EscUI : MonoBehaviour
         if (ExitButton == null)
             ExitButton = GameObject.Find("Exit");
 
-        if (SelectUI == null)
-            SelectUI = GameObject.Find("EscUI");
+        if (ESCUI == null)
+            ESCUI = GameObject.Find("ESCUI");
 
         if (SettingUI == null)
             SettingUI = GameObject.Find("SettingUI");
@@ -49,17 +49,17 @@ public class EscUI : MonoBehaviour
     }
     public void OnHintButton()
     {
-        SelectUI.SetActive(false);
+        ESCUI.SetActive(false);
         HintUI.SetActive(true);
     }
 
     public void OnContinueButton()
     {
-        SelectUI.SetActive(false);
+        ESCUI.SetActive(false);
     }
     public void OnSettingButton()
     {
-        SelectUI.SetActive(false);
+        ESCUI.SetActive(false);
         SettingUI.SetActive(true);
     }
 
@@ -78,7 +78,7 @@ public class EscUI : MonoBehaviour
     {
         HintUI.SetActive(false);
         SettingUI.SetActive(false);
-        SelectUI.SetActive(false);
+        ESCUI.SetActive(false);
     }
 
 }

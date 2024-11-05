@@ -14,6 +14,11 @@ public class Door : InteractableData
         CloseDoor();
     }
 
+    public override void Temp()
+    {
+        UnlockDoor();
+    }
+
     private void OpenDoor()
     {
         if (IsLock == true)
@@ -44,6 +49,15 @@ public class Door : InteractableData
             AudioManager.Instance.PlaySfx("CloseDoor");
             IsOpen = false;
             return;
+        }
+    }
+
+    private void UnlockDoor()
+    {
+        if (IsLock == true) 
+        {
+            IsLock = false;
+            Description = "unlocked";
         }
     }
 

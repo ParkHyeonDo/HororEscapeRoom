@@ -6,11 +6,17 @@ using UnityEngine;
 public class InteractableData : ScriptableObject
 {
     public string ObjectName;
+    [TextArea]
     public string Description;
     [TextArea(10, 20)]
     public string Content;
     public virtual void Interact()
     {
         Debug.Log("interact");
+    }
+
+    public virtual void Temp()
+    {
+        Debug.Log("");
     }
 }

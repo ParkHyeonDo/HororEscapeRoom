@@ -40,6 +40,7 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         CurQuestIndex = 0;
+        QuestUIUpdate();
     }
 
     public void QuestUIUpdate()

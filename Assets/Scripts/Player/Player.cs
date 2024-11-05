@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     public Equipment Equipment;
     public ItemData ItemData;
     public Action AddItem;
+    
 
     private void Awake()
     {
         Controller = GetComponent<PlayerController>();
         Condition = GetComponent<PlayerCondition>();
+        Equipment = GetComponent<Equipment>();
         GameManager.Instance.Player = this;
     }
 }

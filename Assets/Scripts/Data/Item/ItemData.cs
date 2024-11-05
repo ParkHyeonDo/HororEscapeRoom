@@ -33,6 +33,6 @@ public class ItemData : ScriptableObject
     {
         GameManager.Instance.Player.ItemData = this;
         GameManager.Instance.Player.AddItem?.Invoke();
-        Destroy(this);
+        
     }
 }

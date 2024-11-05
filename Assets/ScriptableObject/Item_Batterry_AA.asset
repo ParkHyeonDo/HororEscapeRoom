@@ -16,11 +16,11 @@ MonoBehaviour:
   DisplayName: "\uAC74\uC804\uC9C0AA"
   Description: "\uC190\uC804\uB4F1\uC758 \uBC30\uD130\uB9AC\uB97C \uC18C\uB7C9 \uCDA9\uC804\uC2DC\uD0B5\uB2C8\uB2E4."
   Icon: {fileID: 21300000, guid: 258b2879d3bdc1b428009397e2dda85f, type: 3}
-  EquipPrefab: {fileID: 567147022187255751, guid: 8809bf6169090444b94e702fbc61c496, type: 3}
+  EquipPrefab: {fileID: 3869502619004516779, guid: 045946e98811b584981467cd03cea488, type: 3}
   CanStack: 1
   _maxStack: 10
   CurStack: 0
   Effect:
   - ConsumeType: 0
     TargetStat: 0
-    Value: 10
+    Value: 20

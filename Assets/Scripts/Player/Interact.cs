@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class Interact : MonoBehaviour
 {
     private PlayerController _controller;
     public TextMeshProUGUI Text;
-    public ConversationScreen CScreen;
+    public ConversationScreen ConversationScreen;
 
     [SerializeField] private GameObject _target;
 
@@ -34,19 +35,20 @@ public class Interact : MonoBehaviour
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                Debug.Log(item.GetPrompt());
-                CScreen.SetText(item.GetPrompt()).SetActive(true);
+               
+                ConversationScreen.SetText(item.GetPrompt()).SetActive(true);
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
-                CScreen.SetText(obj.GetPrompt()).SetActive(true);
+                ConversationScreen.SetText(obj.GetPrompt()).SetActive(true);
+
             }
         }
         else
         {
-            CScreen.SetText(string.Empty).SetActive(false);
+            ConversationScreen.SetText(null).SetActive(false);
             _target = null;
             GameManager.Instance.Player.InteractTarget = null;
         }

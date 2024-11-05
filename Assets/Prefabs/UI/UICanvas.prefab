@@ -4118,7 +4118,6 @@ GameObject:
   - component: {fileID: 2262961141409727002}
   - component: {fileID: 7975446847658148497}
   - component: {fileID: 2700233356270596147}
-  - component: {fileID: 6866242328384304138}
   m_Layer: 5
   m_Name: QuickSlotUI
   m_TagString: Untagged
@@ -4189,21 +4188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuickSlotView: {fileID: 7089299284514692828}
-  SlotPanel: {fileID: 2262961141409727002}
-  Slots: []
---- !u!114 &6866242328384304138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7089299284514692828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce45346a7262401498cdf4694fda1b78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QuickSlotView: {fileID: 7505235178815790468}
   SlotPanel: {fileID: 2262961141409727002}
   Slots: []
 --- !u!1 &7150703319495443685
@@ -4367,7 +4351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3962854320307483689
 RectTransform:
   m_ObjectHideFlags: 0

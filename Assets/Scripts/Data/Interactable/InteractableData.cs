@@ -6,6 +6,7 @@ using UnityEngine;
 public class InteractableData : ScriptableObject
 {
     public string ObjectName;
+    [TextArea]
     public string Description;
 
     public virtual void Interact()

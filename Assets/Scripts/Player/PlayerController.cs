@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
     public event Action Interaction;
     public event Action OnNote;
     public event Action OnPause;
-    public event Action WheelUp;
-    public event Action WheelDown;
 
     [Header("Move")]
     public float Speed = 2f;
@@ -140,27 +138,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnWheel(InputAction.CallbackContext context)
-    {
-        if(context.phase == InputActionPhase.Performed)
-        {
-            _mouseScrollDelta = context.ReadValue<Vector2>().y;
-            if(_mouseScrollDelta > 0)
-            {
-                WheelUp?.Invoke();
-            }
-            else if(_mouseScrollDelta < 0)
-            {
-                WheelDown?.Invoke();
-            }
-        }
-    }
-
-    public void OnQuickSlotButton(InputAction.CallbackContext context)
-    {
-        Debug.Log(context);
-    }
-
     private void Look()
     {
         _camXRot += _mouseDelta.y * MouseSensitive;
@@ -198,18 +175,5 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             _isPause = true;
         }
-    }
-
-    public bool OnStair()
-    {
-        Ray frontRay = new Ray(transform.position, Vector3.forward);
-        RaycastHit hit;
-        if(Physics.Raycast(frontRay, out hit, 2f, _stair))
-        {
-            float angle = Vector3.Angle(Vector3.up, hit.normal);
-            Debug.Log(angle);
-            return angle != 0f && angle < MaxSlopeAngle;
-        }
-        return false;
     }
 }

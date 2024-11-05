@@ -48,7 +48,6 @@ public class EscUI : MonoBehaviour
             HintUI = GameObject.Find("HintUI");
 
         CloseUI();
-        GameManager.Instance.Player.Controller.OnPause += PressKey;
     }
     public void OnHintButton()
     {
@@ -83,22 +82,5 @@ public class EscUI : MonoBehaviour
         HintUI.SetActive(false);
         SettingUI.SetActive(false);
         ESCUI.SetActive(false);
-    }
-
-    public void OpenUI()
-    {
-        isOpen = true;
-        HintUI.SetActive(true);
-        SettingUI.SetActive(true);
-        ESCUI.SetActive(true);
-    }
-
-    public void PressKey()
-    {
-        if (isOpen)
-        {
-            CloseUI();
-        }
-        else OpenUI();
     }
 }

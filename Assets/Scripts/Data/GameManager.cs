@@ -1,7 +1,8 @@
+using UnityEngine;
+
 public class GameManager : Singleton<GameManager>
 {
     public Player Player;
-
 
     private void Awake()
     {
@@ -14,5 +15,5 @@ public class GameManager : Singleton<GameManager>
             _instance = this;
         }
     }
-        
+
 }

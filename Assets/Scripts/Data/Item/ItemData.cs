@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public enum ConsumeType
@@ -30,6 +31,8 @@ public class ItemData : ScriptableObject
 
     public virtual void Interact()
     {
-        //아이템 슬롯에 추가
+        GameManager.Instance.Player.ItemData = this;
+        GameManager.Instance.Player.AddItem?.Invoke();
+        
     }
 }

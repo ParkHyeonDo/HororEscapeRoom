@@ -8,8 +8,10 @@ public class ConversationScreen : MonoBehaviour
     public TextMeshProUGUI Text;
     // Start is called before the first frame update
 
-    public void SetText(string text)
+    public GameObject SetText(string text)
     {
+        GameObject gameObject = this.gameObject;
         Text.text = text;
+        return gameObject;
     }
 }

@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Sprint",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "b5c5c029-091f-46c0-9d03-3d6eaaf801d6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "NoteUI",
@@ -70,7 +70,7 @@
                 },
                 {
                     "name": "QuickSlotButton",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "075d6552-143c-4bfd-8b81-eb9f6ffa5a87",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -181,7 +181,7 @@
                 {
                     "name": "",
                     "id": "9e46725e-8890-4db5-a2f0-90ef16fb9299",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/f1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class Interact : MonoBehaviour
 {
     private PlayerController _controller;
     public TextMeshProUGUI Text;
+    public ConversationScreen ConversationScreen;
 
     [SerializeField] private GameObject _target;
 
@@ -25,22 +27,28 @@ public class Interact : MonoBehaviour
     private void Update()
     {
         Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
-
+        Debug.DrawRay(transform.position, transform.forward, Color.red, _range);
         if (Physics.Raycast(ray, out RaycastHit hit, _range, TargetLayer))
         {
+            
             if (hit.collider.gameObject.TryGetComponent<Item>(out Item item))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
+               
+                ConversationScreen.SetText(item.GetPrompt()).SetActive(true);
             }
             else if (hit.collider.gameObject.TryGetComponent<InteractableObject>(out InteractableObject obj))
             {
                 _target = hit.collider.gameObject;
                 GameManager.Instance.Player.InteractTarget = _target;
+                ConversationScreen.SetText(obj.GetPrompt()).SetActive(true);
+
             }
         }
         else
         {
+            ConversationScreen.SetText(null).SetActive(false);
             _target = null;
             GameManager.Instance.Player.InteractTarget = null;
         }

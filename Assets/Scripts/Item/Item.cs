@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Item : MonoBehaviour, IInteractable
 {
@@ -13,5 +14,6 @@ public class Item : MonoBehaviour, IInteractable
     public void Interact()
     {
         ItemData.Interact();
+        Destroy(gameObject);
     }
 }

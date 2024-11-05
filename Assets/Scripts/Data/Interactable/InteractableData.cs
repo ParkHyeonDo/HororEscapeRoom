@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InteractableObject", menuName = "New InteractableObject/Default", order = 0)]

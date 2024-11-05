@@ -1,12 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    IEnumerator UseStamina()
+    {
+        while (_hasStamina)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            _condition.UseStamina(2);
+            if (_condition.Stamina.CurValue < 2) 
+            {
+                _hasStamina = false;
+            }
+        }
+        Speed = 2.0f;
+        StopCoroutine(_coroutine);
+    }
+
+    private IEnumerator _coroutine;
     public event Action Interaction;
     public event Action OnNote;
     public event Action OnPause;
@@ -17,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 2f;
     private Vector2 _moveInput;
     [SerializeField] private LayerMask _stair;
+    public float MaxSlopeAngle;
 
     [Header("Look")]
     [SerializeField] private Transform CameraContainer;
@@ -25,19 +44,23 @@ public class PlayerController : MonoBehaviour
     private float _camXRot;
     private Vector2 _mouseDelta;
     private bool _isNoteON;
+    private bool _hasStamina;
     public float MouseSensitive;
     private float _mouseScrollDelta;
 
     private bool _isPause;
 
     public Rigidbody RigidBody;
+    private PlayerCondition _condition;
 
     public Action WheelChangeEquip;
     public Action NumChangeEquip;
+    
 
     private void Awake()
     {
         RigidBody = GetComponent<Rigidbody>();
+        _condition = GetComponent<PlayerCondition>();
     }
 
     private void Start()
@@ -85,15 +108,21 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed/* && stamina > 0 */)
+        if(context.phase == InputActionPhase.Performed && _condition.Stamina.CurValue > 0 )
         {
+            _hasStamina = true;
             Speed = 3.3f;
+            _coroutine = UseStamina();
+            StartCoroutine(_coroutine);
         }
-        else if(context.phase == InputActionPhase.Canceled )
+        else if(context.phase == InputActionPhase.Canceled || _condition.Stamina.CurValue < 2)
         {
+            _hasStamina = false;
             Speed = 2.0f;
+            StopCoroutine(_coroutine);
         }
     }
+
 
     public void OnNoteUI(InputAction.CallbackContext context)
     {
@@ -142,32 +171,45 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //계단 각도 계산 후 rigidbody Y벡터값 추가예정
-        //Ray[] rays = new Ray[2]
-        //{
-        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.5f), transform.forward),
-        //    new Ray(new Vector3(transform.position.x, transform.position.y - 1.0f), transform.forward)
-        //};
-
-
         Vector3 dir = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         dir *= Speed;
-        dir.y = RigidBody.velocity.y;
+        Ray frontRay = new Ray(CameraContainer.position + Vector3.up * 0.1f, dir);
 
+        RaycastHit hit; 
+        if (Physics.Raycast(frontRay, out hit, 1f, _stair))
+        {
+            dir.y = 1.5f;
+        }
+        else
+            dir.y = RigidBody.velocity.y;
         RigidBody.velocity = dir;
+        
     }
 
     private void Pause()
     {
         if (_isPause == true)
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
             _isPause = false;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
             _isPause = true;
         }
+    }
+
+    public bool OnStair()
+    {
+        Ray frontRay = new Ray(transform.position, Vector3.forward);
+        RaycastHit hit;
+        if(Physics.Raycast(frontRay, out hit, 2f, _stair))
+        {
+            float angle = Vector3.Angle(Vector3.up, hit.normal);
+            Debug.Log(angle);
+            return angle != 0f && angle < MaxSlopeAngle;
+        }
+        return false;
     }
 }

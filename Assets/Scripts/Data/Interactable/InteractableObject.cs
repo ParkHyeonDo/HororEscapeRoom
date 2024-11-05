@@ -7,6 +7,7 @@ public class InteractableObject: MonoBehaviour, IInteractable
 {
     public InteractableData Data;
 
+
     public string GetPrompt()
     {
         return $"<b>{Data.ObjectName}</b>\n{Data.Description}";

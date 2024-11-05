@@ -78,7 +78,7 @@ public class PlayerCondition : MonoBehaviour
     private void Die() 
     {
         // ## 게임오버 씬 또는 UI 호출
-        Debug.Log("Die");
+        //Debug.Log("Die");
     }
 
 

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
 public class Equipment : MonoBehaviour
 {
-    public Equip CurEquip;
+    public Item CurEquip;
     public Transform EquipParent;
 
     private PlayerController _controller;
@@ -21,50 +22,44 @@ public class Equipment : MonoBehaviour
         _condition = GetComponent<PlayerCondition>();
     }
 
-    public void EquipNew(ItemData data) 
+    public void EquipNew(ItemData data)
     {
         UnEquip();
-        CurEquip = Instantiate(data.EquipPrefab, EquipParent).GetComponent<Equip>();
+        CurEquip = Instantiate(data.EquipPrefab, EquipParent).GetComponent<Item>();
         GameManager.Instance.Player.HandItemData = data;
     }
 
 
-    public void UnEquip() 
+    public void UnEquip()
     {
-        if (CurEquip != null) 
-        { 
+        if (CurEquip != null)
+        {
             Destroy(CurEquip.gameObject);
             CurEquip = null;
         }
     }
 
-    public void MouseClick(InputAction.CallbackContext context) 
+    public void MouseClick(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && CurEquip != null) 
+        if (context.phase == InputActionPhase.Started && CurEquip != null)
         {
-            if (CurEquip.CompareTag("ConsumableEquip")) 
+            if (CurEquip.ItemData.GetType() == typeof(Consumable))
             {
-                Consumable data = CurEquip.GetComponent<Consumable>();
-                for (int i = 0; i < data.Effect.Length; i++) 
+                Consumable data = (Consumable)CurEquip.ItemData;
+                for (int i = 0; data.Effect.Length > i; i++)
                 {
-                    switch (data.Effect[i].TargetStat) 
+                    if (data.Effect[i].TargetStat == TargetStat.Battery && 
+                        data.Effect[i].ConsumeType == ConsumeType.Temporaly)
                     {
-                        case TargetStat.Stamina:
-                            
-                            break;
-                        case TargetStat.Battery:
-                            GameManager.Instance.Player.Condition.ChargeBattery(data.Effect[i].Value);
-                            Debug.Log("들어옴?");
-                            break;
+                        _condition.ChargeBattery(data.Effect[i].Value);
                     }
-
                 }
-            } else if (CurEquip.CompareTag("Equip")) 
-            {
-                Debug.Log(CurEquip);
-                CurEquip.MouseClick();
             }
-            
+            else if(CurEquip.ItemData.GetType() == typeof(Key))
+            {
+                //키 사용
+            }
+            else return;
         }
     }
 }

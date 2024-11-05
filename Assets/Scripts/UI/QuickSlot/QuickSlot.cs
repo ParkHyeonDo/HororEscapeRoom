@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,41 +36,85 @@ public class QuickSlot : MonoBehaviour
 
     }
 
-    public void WheelUpEquip(InputAction.CallbackContext context) //ÈÙ¾÷½Ã UI°¡ ºø³ª´Â°Å
+    public void WheelEquip(InputAction.CallbackContext context) //ÈÙ¾÷½Ã UI°¡ ºø³ª´Â°Å
     {
-        ItemData _data = GameManager.Instance.Player.ItemData;
-        ItemData _newData = null;
-        for (int i = 0; i < Slots.Length; i++) 
+        if(context.phase == InputActionPhase.Started) 
         {
-            if (_data == Slots[i].Data && Slots[i+1] != null)
+            Vector2 vector = context.ReadValue<Vector2>();
+            if (vector.y > 0) 
             {
-                _newData = Slots[i+1].Data;
-            } else if (_data == Slots[i].Data && Slots[i+1] == null) 
+                WheelUpEquip(context);
+            } else if(vector.y < 0)
+            {
+                WheelDownEquip(context);
+            }
+        
+            
+            //## UpdateUI
+        }
+    }
+
+    public void WheelUpEquip(InputAction.CallbackContext context) 
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            ItemData _data = GameManager.Instance.Player.HandItemData;
+
+        ItemData _newData = null;
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            if (_data == Slots[i].Data && Slots[i].Data != null )
+            {
+                _newData = Slots[i + 1].Data;
+                    Debug.Log("1¹ø" + _newData.name);
+                i = Slots.Length;
+            }
+            else if (_data == Slots[i].Data && Slots[i].Data == null )
+            {
+                Debug.Log(Slots[i].Data + "¶û " + _newData);
+                _newData = Slots[0].Data;
+                i = Slots.Length;
+                    Debug.Log("2¹ø"+_newData.name);
+                }
+            else
             {
                 _newData = Slots[0].Data;
-            }
+                    Debug.Log("3¹ø"+_newData.name);
+                }
         }
-        GameManager.Instance.Player.Equipment.EquipNew(_newData);
-        //## UpdateUI
+            Debug.Log(_newData);
+            GameManager.Instance.Player.Equipment.EquipNew(_newData);
+        }
     }
 
     public void WheelDownEquip(InputAction.CallbackContext context)
     {
-        ItemData _data = GameManager.Instance.Player.ItemData;
-        ItemData _newData = null;
-        for (int i = 0; i < Slots.Length; i++)
+        if (context.phase == InputActionPhase.Started)
         {
-            if (_data == Slots[i].Data && i-1 <0 )
+            ItemData _data = GameManager.Instance.Player.HandItemData;
+
+            ItemData _newData = null;
+            for (int i = 0; i < Slots.Length; i++)
             {
-                _newData = Slots[i-1].Data;
+                if (_data == Slots[i].Data)
+                {
+                    _newData = Slots[i - 1].Data;
+                    i = Slots.Length;
+                }
+                else if (_data == Slots[i].Data)
+                {
+                    Debug.Log(Slots[i].Data + "¶û " + _newData);
+                    _newData = Slots[0].Data;
+                    i = Slots.Length;
+                }
+                else
+                {
+                    _newData = Slots[0].Data;
+                }
             }
-            else if (_data == Slots[i].Data && i-1 >= 0 )
-            {
-                _newData = Slots[4].Data;
-            }
+            Debug.Log(_newData);
+            GameManager.Instance.Player.Equipment.EquipNew(_newData);
         }
-        GameManager.Instance.Player.Equipment.EquipNew(_newData);
-        //## UpdateUI
     }
 
     public void ChangeEquip(InputAction.CallbackContext context) 

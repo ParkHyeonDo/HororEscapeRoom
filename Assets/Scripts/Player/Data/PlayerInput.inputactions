@@ -70,7 +70,7 @@
                 },
                 {
                     "name": "QuickSlotButton",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "075d6552-143c-4bfd-8b81-eb9f6ffa5a87",
                     "expectedControlType": "Button",
                     "processors": "",

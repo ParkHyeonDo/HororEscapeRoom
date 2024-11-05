@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     {
         Controller = GetComponent<PlayerController>();
         Condition = GetComponent<PlayerCondition>();
+        Equipment = GetComponent<Equipment>();
         GameManager.Instance.Player = this;
     }
 }

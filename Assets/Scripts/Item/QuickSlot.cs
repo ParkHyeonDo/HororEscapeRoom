@@ -74,7 +74,7 @@ public class QuickSlot : MonoBehaviour
 
     public void ChangeEquip(InputAction.CallbackContext context) 
     {
-        if (int.TryParse(context.control.name, out int _new)) 
+        if (int.TryParse(context.control.name, out int _new) && context.phase == InputActionPhase.Started) 
         {
             GameManager.Instance.Player.Equipment.EquipNew(Slots[_new-1].Data);
         }

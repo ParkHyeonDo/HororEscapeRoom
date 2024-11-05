@@ -60,5 +60,4 @@ public class Door : InteractableData
             Description = "unlocked";
         }
     }
-
 }

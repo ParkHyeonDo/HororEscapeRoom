@@ -181,10 +181,9 @@ public class PlayerController : MonoBehaviour
         {
             dir.y = 1.5f;
         }
-        else
-            dir.y = RigidBody.velocity.y;
+        else dir.y = RigidBody.velocity.y;
+
         RigidBody.velocity = dir;
-        
     }
 
     private void Pause()

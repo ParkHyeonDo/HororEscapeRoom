@@ -12,4 +12,9 @@ public class InteractableData : ScriptableObject
     {
         Debug.Log("interact");
     }
+
+    public virtual void Temp()
+    {
+        Debug.Log("");
+    }
 }

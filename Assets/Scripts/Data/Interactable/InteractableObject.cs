@@ -17,4 +17,9 @@ public class InteractableObject: MonoBehaviour, IInteractable
     {
         Data.Interact();
     }
+
+    public virtual void Temp()
+    {
+        Data.Temp();
+    }
 }

@@ -35,7 +35,6 @@ public class HintUI : MonoBehaviour
     // 버튼 클릭 시 호출되는 메서드
     private void OnHintButtonClicked(int index)
     {
-        Debug.Log("Clicked button index: " + index);
         currentNoteIndex = index; // 현재 클릭된 인덱스를 저장
         DisplayHint(index);
     }

@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
     public Action WheelChangeEquip;
     public Action NumChangeEquip;
 
-    public EscUI escUI;
+    public EscUI EscUI;
+
     private void Awake()
     {
         RigidBody = GetComponent<Rigidbody>();
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        EscUI = FindObjectOfType<EscUI>();
         OnPause += Pause;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -138,17 +140,17 @@ public class PlayerController : MonoBehaviour
         {
 
             OnPause?.Invoke();
-            if (escUI != null)
+            if (EscUI != null)
             {
-                if (escUI.ESCUI.activeSelf)
+                if (EscUI.ESCUI.activeSelf)
                 {
-                    escUI.ESCUI.SetActive(false);
+                    EscUI.ESCUI.SetActive(false);
                     Cursor.lockState = CursorLockMode.Locked;
                     _isPause = false;
                 }
                 else
                 {
-                    escUI.ESCUI.SetActive(true);
+                    EscUI.ESCUI.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     _isPause = true;
                 }

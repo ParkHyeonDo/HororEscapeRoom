@@ -22,6 +22,11 @@ public class Door : AnimatedData
         }
     }
 
+    public override void Temp()
+    {
+        UnlockDoor();
+    }
+
     private void OpenDoor()
     {
         if (IsLock == true)
@@ -58,4 +63,12 @@ public class Door : AnimatedData
         }
     }
 
+    private void UnlockDoor()
+    {
+        if (IsLock == true) 
+        {
+            IsLock = false;
+            Description = "unlocked";
+        }
+    }
 }

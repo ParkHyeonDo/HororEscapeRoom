@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EscUI : MonoBehaviour
 {
 
     [Header("Button")]
+    public GameObject SelectButton;
     public GameObject HintButton;
     public GameObject ContinueButton;
     public GameObject SettingButton;
     public GameObject MainMenuButton;
     public GameObject ExitButton;
 
-
     [Header("UI")]
     public GameObject ESCUI;
     public GameObject SettingUI;
     public GameObject HintUI;
+    public GameObject WarningUI;
 
     private bool isOpen;
 
     void Start()
     {
+        if (SelectButton == null)
+            SelectButton = GameObject.Find("SelectButton");
+
         if (HintButton == null)
             HintButton = GameObject.Find("Hint");
 
@@ -47,40 +52,73 @@ public class EscUI : MonoBehaviour
         if (HintUI == null)
             HintUI = GameObject.Find("HintUI");
 
-        CloseUI();
+        if (WarningUI == null)
+            WarningUI = GameObject.Find("WarningUI");
+
+        HintUI.SetActive(false);
+        SettingUI.SetActive(false);
+        WarningUI.SetActive(false);
+        ESCUI.SetActive(false);
     }
+
     public void OnHintButton()
     {
-        ESCUI.SetActive(false);
+        SelectButton.SetActive(false);
         HintUI.SetActive(true);
+        PauseState();
     }
 
     public void OnContinueButton()
     {
         ESCUI.SetActive(false);
-    }
-    public void OnSettingButton()
-    {
-        ESCUI.SetActive(false);
-        SettingUI.SetActive(true);
+        SelectButton.SetActive(true);
+
+        var playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.UpdatePauseState(false);
+        }
     }
 
-    public void OnMainMenuButton()
+    public void OnSettingButton()
+    {
+        SettingUI.SetActive(true);
+        PauseState();
+    }
+    public void OnWarningUI()
     {
         Debug.Log("Returning to Main Menu...");
+        PauseState();
         SceneManager.LoadScene("StartScene");
     }
+    public void OnMainMenuButton()
+    {
+        SelectButton.SetActive(false);
+        WarningUI.SetActive(true);
+    }
+
     public void OnExitButton()
     {
+        PauseState();
         Debug.Log("게임종료");
         //Application.Quit();
     }
 
-    public void CloseUI()
+    public void CloseUI(GameObject gameObjectToActivate)
     {
-        isOpen = false;
-        HintUI.SetActive(false);
-        SettingUI.SetActive(false);
-        ESCUI.SetActive(false);
+        // 전달된 UI를 활성화
+        if (gameObjectToActivate != null)
+        {
+            gameObjectToActivate.SetActive(false);
+            SelectButton.SetActive(true);
+        }
+    }
+    void PauseState() 
+    {
+        var playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.UpdatePauseState(true);
+        }
     }
 }

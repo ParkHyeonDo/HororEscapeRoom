@@ -173,7 +173,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 dir = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         dir *= Speed;
-        Ray frontRay = new Ray(CameraContainer.position + Vector3.up * 0.1f, dir);
+        Ray frontRay = new Ray(transform.position + Vector3.up * 0.1f, dir);
+        Debug.DrawRay(transform.position + Vector3.up * 0.1f, dir);
 
         RaycastHit hit; 
         if (Physics.Raycast(frontRay, out hit, 1f, _stair))

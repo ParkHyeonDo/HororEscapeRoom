@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +21,6 @@ public class EscUI : MonoBehaviour
     public GameObject SettingUI;
     public GameObject HintUI;
     public GameObject WarningUI;
-
-    private bool isOpen;
 
     void Start()
     {
@@ -59,6 +58,8 @@ public class EscUI : MonoBehaviour
         SettingUI.SetActive(false);
         WarningUI.SetActive(false);
         ESCUI.SetActive(false);
+
+        GameManager.Instance.Player.Controller.OnPause += OnOffUI;
     }
 
     public void OnHintButton()
@@ -119,6 +120,20 @@ public class EscUI : MonoBehaviour
         if (playerController != null)
         {
             playerController.UpdatePauseState(true);
+        }
+    }
+    private void OnOffUI()
+    {
+        if (ESCUI != null)
+        {
+            if (ESCUI.activeSelf)
+            {
+                ESCUI.SetActive(false);
+            }
+            else
+            {
+                ESCUI.SetActive(true);
+            }
         }
     }
 }

@@ -29,7 +29,6 @@ public class InteractableObject: MonoBehaviour, IInteractable
             hintUI.DisplayHint(noteIndex);
         }
         Data.Interact();
-        Destroy(gameObject);
     }
 
     public virtual void Temp()

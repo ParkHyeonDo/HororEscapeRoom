@@ -22,10 +22,10 @@ public class Door : AnimatedData
         }
     }
 
-    public override void Temp()
-    {
-        UnlockDoor();
-    }
+    //public override void Temp()
+    //{
+    //    UnlockDoor();
+    //}
 
     private void OpenDoor()
     {

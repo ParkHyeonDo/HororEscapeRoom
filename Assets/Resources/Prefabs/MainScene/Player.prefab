@@ -431,6 +431,7 @@ MonoBehaviour:
   CameraContainer: {fileID: 7336653235386770568}
   MouseSensitive: 0.1
   RigidBody: {fileID: 0}
+  EscUI: {fileID: 0}
 --- !u!54 &4052549413693878220
 Rigidbody:
   m_ObjectHideFlags: 0

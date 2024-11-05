@@ -7,7 +7,8 @@ public class InteractableData : ScriptableObject
 {
     public string ObjectName;
     public string Description;
-
+    [TextArea(10, 20)]
+    public string Content;
     public virtual void Interact()
     {
         Debug.Log("interact");

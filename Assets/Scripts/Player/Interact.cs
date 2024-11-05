@@ -14,7 +14,7 @@ public class Interact : MonoBehaviour
 
     [SerializeField] private GameObject _target;
 
-    private float _range = 2.5f;
+    private float _range = 1.6f;
     public LayerMask TargetLayer;
     private Camera _camera;
 

@@ -6,6 +6,7 @@ public class ConditionUI : MonoBehaviour
 {
     public Condition Battery;
     public Condition Stamina;
+    public Condition Mental;
     // Start is called before the first frame update
     void Start()
     {

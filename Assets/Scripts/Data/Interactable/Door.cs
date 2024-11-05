@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "InteractableObject", menuName = "New InteractableObject/Door", order = 1)]
 public class Door : InteractableData
@@ -17,11 +18,13 @@ public class Door : InteractableData
     {
         if (IsLock == true)
         {
-            //if(GameManager.Instance.Player.현재 아이템 == 키 && 키 == 문 태그)
-            //{
-            //  IsLock = false;
-            //  AudioManager.Instance.PlaySfx("LockedDoorOpen");
-            //}
+            if (GameManager.Instance.Player.ItemData.GetType() == typeof(Key))
+            {
+                IsLock = false;
+                AudioManager.Instance.PlaySfx("LockedDoorOpen");
+                Destroy(GameManager.Instance.Player.ItemData.GameObject());
+                return;
+            }
             AudioManager.Instance.PlaySfx("DoorLocked");
             return;
         }

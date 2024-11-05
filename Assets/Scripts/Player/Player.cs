@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public PlayerCondition Condition;
     public Equipment Equipment;
     public ItemData ItemData;
+    public ItemData HandItemData;
     public Action AddItem;
     
 

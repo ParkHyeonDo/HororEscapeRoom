@@ -10,6 +10,7 @@ public class EquipTool : Equip
 {
     [SerializeField]private float _clickRate;
     private bool _clicking;
+    [HideInInspector]
     public float UseStamina;
     private Equip _curEquip;
     private GameObject _light;

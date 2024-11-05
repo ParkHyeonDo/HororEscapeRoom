@@ -54,36 +54,34 @@ public class QuickSlot : MonoBehaviour
         }
     }
 
-    public void WheelUpEquip(InputAction.CallbackContext context) 
+    public void WheelUpEquip(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
         {
             ItemData _data = GameManager.Instance.Player.HandItemData;
 
-        ItemData _newData = null;
-        for (int i = 0; i < Slots.Length; i++)
-        {
-            if (_data == Slots[i].Data && Slots[i].Data != null )
+            ItemData _newData = null;
+            for (int i = 0; i < Slots.Length; i++)
             {
-                _newData = Slots[i + 1].Data;
-                    Debug.Log("1¹ø" + _newData.name);
-                i = Slots.Length;
+                if (i != Slots.Length)
+                {
+                    if (_data == Slots[i].Data && Slots[i + 1].Data != null)
+                    {
+                        _newData = Slots[i + 1].Data;
+                        break;
+                    }
+                    else 
+                    {
+                        _newData = Slots[0].Data;
+                    }
+                }
+                else
+                {
+                    _newData = Slots[0].Data;
+                }
             }
-            else if (_data == Slots[i].Data && Slots[i].Data == null )
-            {
-                Debug.Log(Slots[i].Data + "¶û " + _newData);
-                _newData = Slots[0].Data;
-                i = Slots.Length;
-                    Debug.Log("2¹ø"+_newData.name);
-                }
-            else
-            {
-                _newData = Slots[0].Data;
-                    Debug.Log("3¹ø"+_newData.name);
-                }
-        }
-            Debug.Log(_newData);
             GameManager.Instance.Player.Equipment.EquipNew(_newData);
+
         }
     }
 
@@ -94,25 +92,33 @@ public class QuickSlot : MonoBehaviour
             ItemData _data = GameManager.Instance.Player.HandItemData;
 
             ItemData _newData = null;
-            for (int i = 0; i < Slots.Length; i++)
+            for (int i = Slots.Length-1; i >= 0; i--)
             {
-                if (_data == Slots[i].Data)
+                if (i != 0)
                 {
-                    _newData = Slots[i - 1].Data;
-                    i = Slots.Length;
-                }
-                else if (_data == Slots[i].Data)
-                {
-                    Debug.Log(Slots[i].Data + "¶û " + _newData);
-                    _newData = Slots[0].Data;
-                    i = Slots.Length;
+                    if (_data == Slots[i].Data)
+                    {
+                        _newData = Slots[i - 1].Data;
+                        break;
+                    }
+                    else
+                    {
+                        _newData = Slots[0].Data;
+                    }
                 }
                 else
                 {
-                    _newData = Slots[0].Data;
+                    for (int j = Slots.Length - 1; j >= 0; j--) 
+                    {
+                        if (Slots[j].Data != null) 
+                        {
+                            _newData = Slots[j].Data;
+                            break;
+                        }
+                    }
+                    
                 }
             }
-            Debug.Log(_newData);
             GameManager.Instance.Player.Equipment.EquipNew(_newData);
         }
     }

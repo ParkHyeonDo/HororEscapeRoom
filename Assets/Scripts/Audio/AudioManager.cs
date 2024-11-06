@@ -14,7 +14,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioClip[] _sfxArr;
     public SceneManager SceneManager;
 
-    private void Awake()
+    protected override void Awake()
     {
         if (_instance != null)
         {

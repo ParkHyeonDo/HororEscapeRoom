@@ -7,15 +7,8 @@ public class GameManager : Singleton<GameManager>
     public ItemManager ItemManager;
     public AuditoriumPuzzle Auditorium;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        base.Awake();
     }
 }

@@ -22,12 +22,14 @@ public class AuditoriumPuzzle : MonoBehaviour
     public Light ProjectorLight;
     public List<Color> _color;
 
+
     private void Start()
     {
         _color.Add(Color.red);
         _color.Add(Color.green);
         _color.Add(Color.blue);
         _color.Add(Color.black);
+        GameManager.Instance.Auditorium = this;
     }
 
     public IEnumerator StartPuzzle()

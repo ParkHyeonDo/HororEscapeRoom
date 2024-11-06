@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.ItemManager = this;
+        //GameManager.Instance.ItemManager = this;
     }
 
     public void LoadItemState(bool[] items)

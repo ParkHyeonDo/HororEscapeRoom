@@ -12,6 +12,7 @@ public class Equipment : MonoBehaviour
 {
     public Item CurEquip;
     public Transform EquipParent;
+    public QuickSlot QuickSlot;
 
     private PlayerController _controller;
     private PlayerCondition _condition;
@@ -45,15 +46,17 @@ public class Equipment : MonoBehaviour
         {
             if (CurEquip.ItemData.GetType() == typeof(Consumable))
             {
-                Consumable data = (Consumable)CurEquip.ItemData;
-                for (int i = 0; data.Effect.Length > i; i++)
+                Consumable _data = (Consumable)CurEquip.ItemData;
+                for (int i = 0; _data.Effect.Length > i; i++)
                 {
-                    if (data.Effect[i].TargetStat == TargetStat.Battery && 
-                        data.Effect[i].ConsumeType == ConsumeType.Temporaly)
+                    if (_data.Effect[i].TargetStat == TargetStat.Battery && 
+                        _data.Effect[i].ConsumeType == ConsumeType.Temporaly)
                     {
-                        _condition.ChargeBattery(data.Effect[i].Value);
+                        _condition.ChargeBattery(_data.Effect[i].Value);
                     }
                 }
+                QuickSlot.RemoveItem();
+
             }
             else if(CurEquip.ItemData.GetType() == typeof(Key))
             {

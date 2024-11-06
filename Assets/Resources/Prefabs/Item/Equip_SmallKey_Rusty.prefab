@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5638855194751442236}
   - component: {fileID: 3718077164499611239}
+  - component: {fileID: -8438986268888272425}
   m_Layer: 11
   m_Name: Equip_SmallKey_Rusty
   m_TagString: Equip
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clickRate: 5
   UseStamina: 0
+--- !u!114 &-8438986268888272425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444573017662007324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e065f4a5c6ba744a5e2071276b7a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemData: {fileID: 11400000, guid: 02005280327cf7740a588ff2e9c6d415, type: 2}
 --- !u!1001 &7258474313762914446
 PrefabInstance:
   m_ObjectHideFlags: 0

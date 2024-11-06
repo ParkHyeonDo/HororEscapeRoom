@@ -11,8 +11,7 @@ public class QuickSlot : MonoBehaviour
     public GameObject QuickSlotView;
     public Transform SlotPanel;
     public ItemSlot[] Slots;
-
-    private ItemData _selectedItem;    
+ 
     private int _equipNum;
 
     //private PlayerController _controller;
@@ -59,7 +58,7 @@ public class QuickSlot : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             ItemData _data = GameManager.Instance.Player.HandItemData;
-
+            if (_data == null) return;
             ItemData _newData = null;
             for (int i = 0; i < Slots.Length; i++)
             {
@@ -68,16 +67,19 @@ public class QuickSlot : MonoBehaviour
                     if (_data == Slots[i].Data && Slots[i + 1].Data != null)
                     {
                         _newData = Slots[i + 1].Data;
+                        _equipNum = i + 1;
                         break;
                     }
                     else 
                     {
                         _newData = Slots[0].Data;
+                        _equipNum = 0;
                     }
                 }
                 else
                 {
                     _newData = Slots[0].Data;
+                    _equipNum = 0;
                 }
             }
             GameManager.Instance.Player.Equipment.EquipNew(_newData);
@@ -90,7 +92,7 @@ public class QuickSlot : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             ItemData _data = GameManager.Instance.Player.HandItemData;
-
+            if (_data == null) return;
             ItemData _newData = null;
             for (int i = Slots.Length-1; i >= 0; i--)
             {
@@ -99,11 +101,13 @@ public class QuickSlot : MonoBehaviour
                     if (_data == Slots[i].Data)
                     {
                         _newData = Slots[i - 1].Data;
+                        _equipNum = i - 1;
                         break;
                     }
                     else
                     {
                         _newData = Slots[0].Data;
+                        _equipNum = 0;
                     }
                 }
                 else
@@ -113,6 +117,7 @@ public class QuickSlot : MonoBehaviour
                         if (Slots[j].Data != null) 
                         {
                             _newData = Slots[j].Data;
+                            _equipNum = j;
                             break;
                         }
                     }
@@ -128,6 +133,7 @@ public class QuickSlot : MonoBehaviour
         if (int.TryParse(context.control.name, out int _new) && context.phase == InputActionPhase.Started) 
         {
             GameManager.Instance.Player.Equipment.EquipNew(Slots[_new-1].Data);
+            _equipNum = _new - 1;
         }
         //## UpdateUI
     }
@@ -201,15 +207,32 @@ public class QuickSlot : MonoBehaviour
 
     public void UseItemInSlot(int slotIndex)
     {
+        _curEmptySlot = Slots.Length - slotIndex;
         while (slotIndex + 1 < _curEmptySlot)
         {
-            Slots[slotIndex].Icon.sprite = Slots[slotIndex + 1].Icon.sprite;
+            if (Slots[slotIndex + 1].Data == null || slotIndex == Slots.Length) 
+            {
+                Slots[slotIndex].Icon.sprite = null;
+            }
             Slots[slotIndex].Data = Slots[slotIndex + 1].Data;
-            if (Slots[slotIndex + 1].Icon.sprite == null) break;
+            UpdateUI(Slots[slotIndex]);
             slotIndex++;
         }
-        _curEmptySlot--;
+        
     }
 
-    // 아이템 먹기를 여기서 구현해야 하나 ?
+    public void RemoveItem() 
+    {
+        Slots[_equipNum].Quantity--;
+
+        if (Slots[_equipNum].Quantity <= 0) 
+        {
+            Slots[_equipNum].Data = null;
+            UseItemInSlot(_equipNum);
+            GameManager.Instance.Player.Equipment.EquipNew(Slots[0].Data);
+                
+                
+
+        }
+    }
 }

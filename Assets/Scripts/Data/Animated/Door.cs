@@ -22,7 +22,7 @@ public class Door : AnimatedData
         }
     }
 
-    public void Temp()
+    public virtual void Temp()
     {
         UnlockDoor();
     }
@@ -67,7 +67,6 @@ public class Door : AnimatedData
         if (IsLock == true) 
         {
             IsLock = false;
-            Description = "unlocked";
         }
     }
 }

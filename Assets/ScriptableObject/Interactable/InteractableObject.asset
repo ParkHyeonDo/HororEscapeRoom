@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc182da87e98a8b499ea6e555b69d5ef, type: 3}
   m_Name: InteractableObject
   m_EditorClassIdentifier: 
-  ObjectName: keypadBtn
-  Description: can press
+  ObjectName: "\uD0A4\uD328\uB4DC \uBC84\uD2BC"
+  Description: "\uC0C1\uD638\uC791\uC6A9\uC744 \uD1B5\uD574 \uB204\uB97C \uC218 \uC788\uB2E4."
+  Content: 
+  isHint: 0
+  isPuzzle: 0

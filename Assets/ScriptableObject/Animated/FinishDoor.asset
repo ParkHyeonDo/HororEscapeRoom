@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5e469c7138d4d742a78dcbc4a0f19b8, type: 3}
-  m_Name: MachineRoomDoor
+  m_Name: FinishDoor
   m_EditorClassIdentifier: 
-  _controller: {fileID: 9100000, guid: 4150462b6e554974f976de973d463777, type: 2}
-  ObjectName: "\uBCF4\uC77C\uB7EC\uC2E4"
-  Description: "\uCF8C\uCF8C\uD55C \uAE30\uB984\uB0C4\uC0C8\uAC00 \uD758\uB7EC\uB098\uC628\uB2E4."
-  DoorTag: 20
+  _controller: {fileID: 0}
+  ObjectName: "\uBE68\uAC04\uBB38"
+  Description: "\uC0C8\uBE68\uAC04 \uBB38\uC774\uB2E4."
+  DoorTag: 1
   IsLock: 1
   IsOpen: 0

@@ -12,6 +12,7 @@ public class AuditoryDoor : Door
 		{
 			base.Temp();
 			QuestManager.Instance.QuestClearCheck(1);
+			IsLock = false;
 		}
 	}
 }

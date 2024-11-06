@@ -57,7 +57,7 @@ public class AuditoriumPuzzle : MonoBehaviour
             ProjectorLight.color = Color.white;
             while (true)
             {
-                if(_collect.Count == Input.Count)
+                if(_collect.Count <= Input.Count)
                 {
                     if(CheckLogic())
                     {
@@ -88,6 +88,7 @@ public class AuditoriumPuzzle : MonoBehaviour
                     AudioManager.Instance.PlayBGM("ChangeChapter");
                     // 노트 생성
                     Instantiate<GameObject>(_note, _transform.position, Quaternion.Euler(90f,0f,0f));
+                    QuestManager.Instance.QuestClearCheck(2);
                 }
                 StopCoroutine(StartPuzzle());
                 break;

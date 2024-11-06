@@ -136,6 +136,7 @@ public class QuickSlot : MonoBehaviour
     {
         if (int.TryParse(context.control.name, out int _new) && context.phase == InputActionPhase.Started) 
         {
+            
             GameManager.Instance.Player.Equipment.EquipNew(Slots[_new-1].Data);
             _equipNum = _new - 1;
         }
@@ -295,6 +296,7 @@ public class QuickSlot : MonoBehaviour
     public void RemoveItem() 
     {
         Slots[_equipNum].Quantity--;
+        UpdateUI();
         if (Slots[_equipNum].Quantity <= 0) 
         {
             Slots[_equipNum].Data = null;

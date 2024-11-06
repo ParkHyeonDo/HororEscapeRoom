@@ -36,10 +36,10 @@ public class AuditoriumPuzzle : MonoBehaviour
         ProjectorLight.color = Color.white;
         IsPlaying = true;
         AudioManager.Instance.PlayBGM("SpookTensionUp");
-        if (Door.Data.GetType() == typeof(Door))
+        if (Door.Data.GetType() == typeof(AuditoryDoor))
         {
             _animator = Door.GetComponent<Animator>();
-            Door data = (Door)Door.Data;
+            AuditoryDoor data = (AuditoryDoor)Door.Data;
             data.IsOpen = false;
             data.IsLock = true;
             _animator.SetBool("isOpen", false);
@@ -82,9 +82,9 @@ public class AuditoriumPuzzle : MonoBehaviour
             if (gamecount > 3)
             {
                 IsPlaying = false;
-                if (Door.Data.GetType() == typeof(Door))
+                if (Door.Data.GetType() == typeof(AuditoryDoor))
                 {
-                    Door data = (Door)Door.Data;
+                    AuditoryDoor data = (AuditoryDoor)Door.Data;
                     data.IsLock = false;
                     AudioManager.Instance.PlayBGM("ChangeChapter");
                     // 노트 생성

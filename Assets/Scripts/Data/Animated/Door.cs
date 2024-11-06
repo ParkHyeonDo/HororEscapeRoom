@@ -5,6 +5,8 @@ using UnityEngine;
 public class Door : AnimatedData
 {
     private Animator _animator;
+    private Key _key;
+    [SerializeField] private int DoorTag;
     public bool IsLock = false;
     public bool IsOpen = false;
 
@@ -33,11 +35,16 @@ public class Door : AnimatedData
         {
             if (GameManager.Instance.Player.HandItemData?.GetType() == typeof(Key))
             {
-                IsLock = false;
-                AudioManager.Instance.PlaySfx("LockedDoorOpen");
-                _animator.SetBool("isLock",IsLock);
-                GameManager.Instance.Player.QuickSlot.RemoveItem();
-                return;
+                _key = (Key)GameManager.Instance.Player.HandItemData;
+                if (_key.Tag  ==  DoorTag)
+                {
+                    IsLock = false;
+                    AudioManager.Instance.PlaySfx("LockedDoorOpen");
+                    _animator.SetBool("isLock", IsLock);
+                    GameManager.Instance.Player.QuickSlot.RemoveItem();
+                    _key = null;
+                    return;
+                }
             }
             AudioManager.Instance.PlaySfx("DoorLocked");
             return;

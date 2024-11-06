@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     public float MouseSensitive;
     private float _mouseScrollDelta;
 
+    [HideInInspector]
+    public bool IsLightOn = true;
+    private Light _Light;
+
     private bool _isPause;
 
     public Rigidbody RigidBody;
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         RigidBody = GetComponent<Rigidbody>();
         _condition = GetComponent<PlayerCondition>();
+        _Light = GetComponentInChildren<Light>();
     }
 
     private void Start()
@@ -205,6 +210,22 @@ public class PlayerController : MonoBehaviour
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    public void LightControl(InputAction.CallbackContext context) 
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            if (IsLightOn)
+            {
+                _Light.gameObject.SetActive(false);
+                IsLightOn = false;
+            } else if (!IsLightOn) 
+            {
+                _Light.gameObject.SetActive(true);
+                IsLightOn = true;
+            }
         }
     }
 }

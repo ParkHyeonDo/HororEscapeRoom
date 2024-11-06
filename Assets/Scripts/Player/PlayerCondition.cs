@@ -27,7 +27,7 @@ public class PlayerCondition : MonoBehaviour
 
     public void UseBattery() 
     {
-        if (Battery.CurValue > 0 /*## && bool 손전등 == true */)
+        if (Battery.CurValue > 0 && GameManager.Instance.Player.Controller.IsLightOn )
         {
             Battery.Subtract(Battery.PassiveValue * Time.deltaTime);
         }

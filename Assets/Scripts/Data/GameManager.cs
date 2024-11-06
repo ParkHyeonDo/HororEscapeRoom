@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public Player Player;
+    public ItemManager ItemManager;
 
     private void Awake()
     {

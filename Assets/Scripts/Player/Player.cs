@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public ItemData ItemData;
     public ItemData HandItemData;
     public Action AddItem;
+    public QuickSlot QuickSlot;
     
 
     private void Awake()

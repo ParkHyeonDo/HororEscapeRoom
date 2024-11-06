@@ -25,7 +25,7 @@ public class InteractableObject: MonoBehaviour, IInteractable
     {
         if (hintUI != null)
         {
-            hintUI.AddNote(noteIndex, Data.ObjectName, Data.Content);
+            hintUI.AddNote(noteIndex, Data.ObjectName, Data.Content, Data.isHint);
             hintUI.DisplayHint(noteIndex);
         }
         Data.Interact();

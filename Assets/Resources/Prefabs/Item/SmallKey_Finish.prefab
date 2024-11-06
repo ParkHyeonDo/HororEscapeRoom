@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 501a19826a840da4a93f946d0d749a6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0195f3431a8fdde458b8f6b6fc282e90, type: 2}
+      objectReference: {fileID: 2100000, guid: e6fba336b497b09449f6d1411a1fa7b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 501a19826a840da4a93f946d0d749a6e, type: 3}
       propertyPath: m_Name
       value: SmallKey

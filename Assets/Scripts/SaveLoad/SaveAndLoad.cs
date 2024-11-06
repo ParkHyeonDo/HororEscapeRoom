@@ -13,6 +13,7 @@ public class SaveData
     public List<int> Notes;//»πµÊ«— ≥Î∆Æ ∏Ò∑œ
     public List<string> NoteNames;
     public List<string> NoteContents;
+    public bool[] DoorState;
 
 }
 public class SaveAndLoad : Singleton<SaveAndLoad>
@@ -48,6 +49,7 @@ public class SaveAndLoad : Singleton<SaveAndLoad>
                 a++;
             }
             GameManager.Instance.ItemManager.LoadItemState(saveData.Items);
+            GameManager.Instance.DoorManager.SetDoorState(saveData.DoorState);
         }    
     }
 
@@ -67,6 +69,7 @@ public class SaveAndLoad : Singleton<SaveAndLoad>
             saveData.NoteNames.Add(element.Value.noteName);
             saveData.NoteContents.Add(element.Value.content);
         }
+        saveData.DoorState = GameManager.Instance.DoorManager.GetDoorState();
         string json = JsonUtility.ToJson(saveData, true);
 
         File.WriteAllText(_path, json);

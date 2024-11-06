@@ -10,5 +10,4 @@ public class AnimatedData : ScriptableObject
     {
         animator.runtimeAnimatorController ??= _controller;
     }
-
 }

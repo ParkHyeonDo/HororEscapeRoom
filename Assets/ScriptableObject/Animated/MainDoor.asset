@@ -15,5 +15,5 @@ MonoBehaviour:
   _controller: {fileID: 22100000, guid: f78f0256981d2ea47b75bc3833b8a454, type: 2}
   ObjectName: "\uCD9C\uC785\uAD6C"
   Description: "\uC7A0\uACA8\uC788\uB2E4."
-  IsLock: 1
+  IsLock: 0
   IsOpen: 0

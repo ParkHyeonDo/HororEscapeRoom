@@ -17,6 +17,13 @@ public class AnimatedObject : MonoBehaviour, IInteractable
         {
             Animat = this.gameObject.GetComponent<Animator>();
         }
+        if(Data.GetType() == typeof(Door))
+        {
+            Door data = (Door)Data;
+            data.IsLock = false;
+            data.IsOpen = false;
+            Data = data;
+        }
     }
     public string GetPrompt()
     {

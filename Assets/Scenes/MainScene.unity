@@ -2375,9 +2375,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1713812606}
     - target: {fileID: 1684816360952214513, guid: 9dae4c28856bb1f48bcb86cbd51e8d53, type: 3}
+      propertyPath: KeyPrefabs
+      value: 
+      objectReference: {fileID: 4444573017662007324, guid: 4e4b6ef5c950f484fb0fca43fb88a306, type: 3}
+    - target: {fileID: 1684816360952214513, guid: 9dae4c28856bb1f48bcb86cbd51e8d53, type: 3}
       propertyPath: _transform
       value: 
       objectReference: {fileID: 1713812604}
+    - target: {fileID: 1684816360952214513, guid: 9dae4c28856bb1f48bcb86cbd51e8d53, type: 3}
+      propertyPath: _keyPrefabs
+      value: 
+      objectReference: {fileID: 4444573017662007324, guid: 4e4b6ef5c950f484fb0fca43fb88a306, type: 3}
     - target: {fileID: 1684816360952214513, guid: 9dae4c28856bb1f48bcb86cbd51e8d53, type: 3}
       propertyPath: ProjectorLight
       value: 

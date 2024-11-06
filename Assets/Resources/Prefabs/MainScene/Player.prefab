@@ -472,6 +472,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6a739138-a50b-4f03-9feb-075f1e958932
     m_ActionName: Player/Use[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2227391264445871970}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: LightControl
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4a66b93-35b6-49c0-a428-40711d6bda4d
+    m_ActionName: Player/LightControl[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -514,6 +530,7 @@ MonoBehaviour:
   MaxSlopeAngle: 0
   CameraContainer: {fileID: 7336653235386770568}
   MouseSensitive: 0.1
+  IsLightOn: 1
   RigidBody: {fileID: 0}
   EscUI: {fileID: 0}
 --- !u!54 &4052549413693878220
@@ -707,6 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurEquip: {fileID: 0}
   EquipParent: {fileID: 5367014882636924313}
+  QuickSlot: {fileID: 0}
 --- !u!114 &1695369670986686819
 MonoBehaviour:
   m_ObjectHideFlags: 0

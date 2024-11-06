@@ -8,10 +8,10 @@ public class AuditoryDoor : Door
 {
 	public override void Temp()
 	{
-		if (QuestManager.Instance.CurQuestIndex == 1)
+		if (QuestManager.Instance.CurQuestIndex == 0)
 		{
 			base.Temp();
-			QuestManager.Instance.QuestClearCheck(1);
+			QuestManager.Instance.QuestClearCheck(0);
 		}
 	}
 }

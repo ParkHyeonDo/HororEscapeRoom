@@ -14,7 +14,7 @@ public class HintUI : MonoBehaviour
     public List<Button> hintButtons;            // HintsButton 내의 버튼들
     public List<GameObject> hintImages;         // 각 Hint에 대한 이미지 오브젝트 리스트
 
-    private Dictionary<int, (string noteName, string content)> hintDictionary = new Dictionary<int, (string, string)>();
+    public Dictionary<int, (string noteName, string content)> hintDictionary = new Dictionary<int, (string, string)>();
 
     public int currentNoteIndex; // 현재 선택된 노트의 인덱스
 

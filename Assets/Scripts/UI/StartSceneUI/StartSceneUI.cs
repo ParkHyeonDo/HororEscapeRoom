@@ -55,6 +55,10 @@ public class StartSceneUI : MonoBehaviour
     public void OnLoadGameButton()
     {
         Debug.Log("플레이어 정보불러오기");
+        SceneManager.LoadScene("MainScene");
+        AudioManager.Instance.StopLoop();
+        AudioManager.Instance.PlayBGM("ChangeChapter");
+        SaveAndLoad.Instance.Load();
     }
     public void OnHowToPlayButton()
     {

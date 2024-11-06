@@ -20,6 +20,7 @@ MonoBehaviour:
   CanStack: 1
   _maxStack: 10
   CurStack: 0
+  PrefabName: BatteryAA
   Effect:
   - ConsumeType: 0
     TargetStat: 0

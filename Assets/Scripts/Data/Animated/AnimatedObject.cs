@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimatedObject : MonoBehaviour, IInteractable
@@ -17,10 +18,11 @@ public class AnimatedObject : MonoBehaviour, IInteractable
         {
             Animat = this.gameObject.GetComponent<Animator>();
         }
-        if(Data.GetType() == typeof(Door))
+
+        if(Data.GetType() == typeof(Door) || Data.GetType() == typeof(GatehouseDoor) || Data.GetType() == typeof(AuditoryDoor))
         {
             Door data = (Door)Data;
-            data.IsLock = false;
+            data.IsLock = true;
             data.IsOpen = false;
             Data = data;
         }
@@ -33,5 +35,14 @@ public class AnimatedObject : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         Data.Interact(Animat);
+    }
+
+    public virtual void Temp()
+    {
+        if (Data.GetType() == typeof(Door))
+        {
+            Door data = (Door)Data;
+            data.Temp();
+        }
     }
 }

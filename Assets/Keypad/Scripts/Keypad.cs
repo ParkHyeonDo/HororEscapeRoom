@@ -121,17 +121,11 @@ namespace NavKeypad
 
         private void AccessGranted()
         {
-            if (QuestManager.Instance.CurQuestIndex == 1) 
-            {
-                AccessDenied();
-                return;
-            }
             accessWasGranted = true;
             keypadDisplayText.text = accessGrantedText;
             onAccessGranted?.Invoke();
             panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
             audioSource.PlayOneShot(accessGrantedSfx);
-            QuestManager.Instance.QuestClearCheck(1);
         }
 
     }

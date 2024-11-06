@@ -1503,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 1271299176494957908, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
       propertyPath: Data
       value: 
-      objectReference: {fileID: 11400000, guid: 0c94c2add50859c4e937cf12fe05af02, type: 2}
+      objectReference: {fileID: 11400000, guid: 09ace905f353896488d3ad3e8a9e2728, type: 2}
     - target: {fileID: 5308635912446891440, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
       propertyPath: m_Name
       value: Asylum

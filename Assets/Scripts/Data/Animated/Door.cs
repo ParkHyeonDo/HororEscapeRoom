@@ -36,7 +36,7 @@ public class Door : AnimatedData
                 IsLock = false;
                 AudioManager.Instance.PlaySfx("LockedDoorOpen");
                 _animator.SetBool("isLock",IsLock);
-                Destroy(GameManager.Instance.Player.ItemData.GameObject());
+                Destroy(GameManager.Instance.Player.HandItemData?.GameObject());
                 return;
             }
             AudioManager.Instance.PlaySfx("DoorLocked");

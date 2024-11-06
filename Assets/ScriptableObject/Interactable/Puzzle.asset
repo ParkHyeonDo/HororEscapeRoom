@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e469c7138d4d742a78dcbc4a0f19b8, type: 3}
-  m_Name: Auditory Door
+  m_Script: {fileID: 11500000, guid: 1c5197f92f540e84e9fe4a5e962a50c1, type: 3}
+  m_Name: Puzzle
   m_EditorClassIdentifier: 
-  _controller: {fileID: 9100000, guid: 5e0ab9fc64f9ce84bb03d8f4f8fb845f, type: 2}
-  ObjectName: "\uC9D1\uD68C\uB2F9 \uBB38"
-  Description: aaa
-  IsLock: 0
-  IsOpen: 0
+  ObjectName: "\uD37C\uC990"
+  Description: "\uAC15\uD558\uAC8C \uB2EB\uD600\uC788\uB2E4."
+  Content: 
+  isHint: 0
+  isPuzzle: 1

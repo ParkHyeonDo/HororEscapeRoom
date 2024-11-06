@@ -57,7 +57,7 @@ public class AuditoriumPuzzle : MonoBehaviour
             ProjectorLight.color = Color.white;
             while (true)
             {
-                if(_collect.Count == Input.Count)
+                if(_collect.Count <= Input.Count)
                 {
                     if(CheckLogic())
                     {

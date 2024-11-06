@@ -17,6 +17,7 @@ public class AuditoriumPuzzle : MonoBehaviour
     [Header("Note Reward")]
     [SerializeField] private Transform _transform;
     [SerializeField] private GameObject _note;
+    [SerializeField] private GameObject _keyPrefabs;
 
     public Light ProjectorLight;
     public List<Color> _color;
@@ -88,6 +89,7 @@ public class AuditoriumPuzzle : MonoBehaviour
                     AudioManager.Instance.PlayBGM("ChangeChapter");
                     // 노트 생성
                     Instantiate<GameObject>(_note, _transform.position, Quaternion.Euler(90f,0f,0f));
+                    Instantiate<GameObject>(_keyPrefabs, _transform.position, Quaternion.Euler(90f, 0f, 0f));
                     QuestManager.Instance.QuestClearCheck(2);
                 }
                 StopCoroutine(StartPuzzle());

@@ -26,6 +26,7 @@ public class Equipment : MonoBehaviour
     public void EquipNew(ItemData data)
     {
         UnEquip();
+        if (data == null) { return; }
         CurEquip = Instantiate(data.EquipPrefab, EquipParent).GetComponent<Item>();
         GameManager.Instance.Player.HandItemData = data;
     }

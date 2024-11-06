@@ -38,7 +38,7 @@ public class ItemSlot : MonoBehaviour
         
         Icon.sprite = Data.Icon;
         QuantityText.text = Quantity > 1 ? Quantity.ToString() : string.Empty;
-        //Icon.gameObject.SetActive(true);
+        Icon.enabled = true;
         if (_outline != null) 
         {
             _outline.enabled = Equipped;
@@ -48,7 +48,7 @@ public class ItemSlot : MonoBehaviour
     public void Clear()
     {
         Data = null;
-        //Icon.gameObject.SetActive(false);
+        Icon.enabled = false;
         QuantityText.text = string.Empty;
     }
 

@@ -28,6 +28,7 @@ public class ItemData : ScriptableObject
     public bool CanStack;
     [SerializeField] private int _maxStack;
     public int CurStack;
+    public string PrefabName;
 
     public virtual void Interact()
     {

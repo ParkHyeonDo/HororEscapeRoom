@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Loading;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,7 @@ public class QuickSlot : MonoBehaviour
     public Transform SlotPanel;
     public ItemSlot[] Slots;
  
-    private int _equipNum;
+    public int _equipNum;
 
     //private PlayerController _controller;
     private int _curEmptySlot;
@@ -33,6 +34,9 @@ public class QuickSlot : MonoBehaviour
             
         }
 
+        GameManager.Instance.Player.QuickSlot = this;
+
+        UpdateUI();
     }
 
     public void WheelEquip(InputAction.CallbackContext context) //휠업시 UI가 빗나는거
@@ -165,6 +169,32 @@ public class QuickSlot : MonoBehaviour
         }
     }
 
+    void AddItemWithItemName(string name)
+    {
+        ItemData _data = Resources.Load<GameObject>(name).GetComponent<ItemData>();
+
+        if (_data.CanStack)
+        {
+            ItemSlot _slot = GetItemStack(_data);
+            if (_slot != null)
+            {
+                _slot.Quantity++;
+                UpdateUI();
+                GameManager.Instance.Player.ItemData = null;
+                return;
+            }
+        }
+        ItemSlot _emptySlot = GetEmptySlot();
+        if (_emptySlot != null)
+        {
+            _emptySlot.Data = _data;
+            _emptySlot.Quantity = 1;
+            UpdateUI();
+            GameManager.Instance.Player.ItemData = null;
+            return;
+        }
+    }
+
     public void UpdateUI()
     {
        
@@ -206,10 +236,9 @@ public class QuickSlot : MonoBehaviour
     }
 
 
-    public void UseItemInSlot(int slotIndex)
+    public void SortItemInSlot(int slotIndex)
     {
-        _curEmptySlot = Slots.Length - slotIndex;
-        while (slotIndex + 1 < _curEmptySlot)
+        while (slotIndex + 1 < Slots.Length)
         {
             if (Slots[slotIndex + 1].Data == null || slotIndex == Slots.Length) 
             {
@@ -222,6 +251,48 @@ public class QuickSlot : MonoBehaviour
         
     }
 
+    // 아이템 먹기를 여기서 구현해야 하나 ?
+    public string[] GetSlotItemName()
+    {
+        string[] result = new string[Slots.Length];
+        int a = 0;
+        foreach(ItemSlot itemSlot in Slots)
+        {
+            if(itemSlot.Data != null)
+            {
+                result[a] = itemSlot.Data.PrefabName;
+            }
+            else
+            {
+                result[a] = null;
+            }
+            a++;
+        }
+        return result;
+    }
+
+    public int[] GetSlotItemStack()
+    {
+        int[] result = new int[Slots.Length];
+        int a = 0;
+        foreach (ItemSlot itemSlot in Slots)
+        {
+            if (itemSlot.Data != null && itemSlot.Data.CanStack)
+            {
+                result[a] = itemSlot.Data.CurStack;
+            }
+            else if(itemSlot.Data != null)
+            {
+                result[a] = 1;
+            }
+            else
+            {
+                result[a] = 0;
+            }
+            a++;
+        }
+        return result;
+    }
     public void RemoveItem() 
     {
         Slots[_equipNum].Quantity--;
@@ -229,11 +300,22 @@ public class QuickSlot : MonoBehaviour
         if (Slots[_equipNum].Quantity <= 0) 
         {
             Slots[_equipNum].Data = null;
-            UseItemInSlot(_equipNum);
+            SortItemInSlot(_equipNum);
             GameManager.Instance.Player.Equipment.EquipNew(Slots[0].Data);
-                
-                
+        }
+    }
 
+    public void LoadItem(string[] slots, int[] slotsStack)
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            if (slotsStack[i] > 0)
+            {
+                for (int j = 0; j < slotsStack[i]; j++) 
+                {
+                    AddItemWithItemName(slots[i]);
+                }
+            }
         }
     }
 }

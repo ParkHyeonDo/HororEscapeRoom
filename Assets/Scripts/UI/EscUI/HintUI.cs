@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +14,7 @@ public class HintUI : MonoBehaviour
     public List<Button> hintButtons;            // HintsButton 내의 버튼들
     public List<GameObject> hintImages;         // 각 Hint에 대한 이미지 오브젝트 리스트
 
-    private Dictionary<int, (string noteName, string content)> hintDictionary = new Dictionary<int, (string, string)>();
+    public Dictionary<int, (string noteName, string content)> hintDictionary = new Dictionary<int, (string, string)>();
 
     public int currentNoteIndex; // 현재 선택된 노트의 인덱스
 
@@ -40,8 +39,14 @@ public class HintUI : MonoBehaviour
     }
 
     // 쪽지를 추가하는 메서드
-    public void AddNote(int index, string noteName, string content)
+    public void AddNote(int index, string noteName, string content, bool isHint)
     {
+        // isHint가 false이면 무시하고 저장하지 않음
+        if (!isHint)
+        {
+            return;
+        }
+
         if (hintDictionary.ContainsKey(index))
         {
             return; // 이미 추가된 쪽지라면 무시

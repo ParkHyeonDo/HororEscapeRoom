@@ -5,14 +5,14 @@ using UnityEngine;
 public class Door : AnimatedData
 {
     private Animator _animator;
-    public bool IsLock;
-    public bool IsOpen;
+    public bool IsLock = false;
+    public bool IsOpen = false;
 
     public override void Interact(Animator animator)
     {
         base.Interact(animator);
         _animator = animator;
-        if(IsOpen)
+        if(IsOpen == true)
         {
             CloseDoor();
         }
@@ -22,16 +22,16 @@ public class Door : AnimatedData
         }
     }
 
-    //public override void Temp()
-    //{
-    //    UnlockDoor();
-    //}
+    public void Temp()
+    {
+        UnlockDoor();
+    }
 
     private void OpenDoor()
     {
         if (IsLock == true)
         {
-            if (GameManager.Instance.Player.ItemData?.GetType() == typeof(Key))
+            if (GameManager.Instance.Player.HandItemData?.GetType() == typeof(Key))
             {
                 IsLock = false;
                 AudioManager.Instance.PlaySfx("LockedDoorOpen");
@@ -42,7 +42,7 @@ public class Door : AnimatedData
             AudioManager.Instance.PlaySfx("DoorLocked");
             return;
         }
-        else if(IsLock == false)
+        else
         {
             //애니메이션 실행
             AudioManager.Instance.PlaySfx("OpenDoor");
@@ -62,7 +62,6 @@ public class Door : AnimatedData
             return;
         }
     }
-
     private void UnlockDoor()
     {
         if (IsLock == true) 

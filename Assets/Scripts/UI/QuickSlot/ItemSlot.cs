@@ -47,6 +47,7 @@ public class ItemSlot : MonoBehaviour
 
     public void Clear()
     {
+        Icon.sprite = null;
         Data = null;
         Icon.enabled = false;
         QuantityText.text = string.Empty;

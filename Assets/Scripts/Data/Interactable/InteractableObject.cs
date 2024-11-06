@@ -16,7 +16,7 @@ public class InteractableObject: MonoBehaviour, IInteractable
             hintUI = FindObjectOfType<HintUI>();
         }
     }
-    public string GetPrompt()
+    public virtual string GetPrompt()
     {
         return $"<b>{Data.ObjectName}</b>\n{Data.Description}";
     }

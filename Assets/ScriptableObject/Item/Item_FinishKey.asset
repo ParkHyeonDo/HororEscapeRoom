@@ -21,3 +21,4 @@ MonoBehaviour:
   _maxStack: 0
   CurStack: 0
   PrefabName: SmallKey_Finish
+  Tag: 1

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e469c7138d4d742a78dcbc4a0f19b8, type: 3}
   m_Name: MachineRoomDoor
   m_EditorClassIdentifier: 
-  _controller: {fileID: 9100000, guid: 903859120d8257c43ab5ec6971ff3fc1, type: 2}
+  _controller: {fileID: 9100000, guid: 4150462b6e554974f976de973d463777, type: 2}
   ObjectName: "\uBCF4\uC77C\uB7EC\uC2E4"
   Description: "\uCF8C\uCF8C\uD55C \uAE30\uB984\uB0C4\uC0C8\uAC00 \uD758\uB7EC\uB098\uC628\uB2E4."
-  IsLock: 0
+  DoorTag: 20
+  IsLock: 1
   IsOpen: 0

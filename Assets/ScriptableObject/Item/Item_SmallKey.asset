@@ -20,3 +20,4 @@ MonoBehaviour:
   CanStack: 0
   _maxStack: 0
   CurStack: 0
+  PrefabName: SmallKey_Rusty

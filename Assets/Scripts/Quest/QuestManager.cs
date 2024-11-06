@@ -54,6 +54,7 @@ public class QuestManager : MonoBehaviour
         {
             CurQuestIndex++;
             QuestUIUpdate();
+            SaveAndLoad.Instance.Save();
             return true;
         }
         return false;

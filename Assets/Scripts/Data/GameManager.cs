@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public Player Player;
+    public ItemManager ItemManager;
     public AuditoriumPuzzle Auditorium;
 
     private void Awake()

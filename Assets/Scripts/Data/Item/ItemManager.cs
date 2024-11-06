@@ -26,7 +26,14 @@ public class ItemManager : MonoBehaviour
         bool[] result = new bool[ItemsList.Count];
         for (int i = 0; i < ItemsList.Count; i++)
         {
-            result[i] = ItemsList[i].activeSelf;
+            if (ItemsList[i] != null)
+            {
+                result[i] = false;
+            }
+            else
+            {
+                result[i] = ItemsList[i].activeSelf;
+            }
         }
         return result;
     }

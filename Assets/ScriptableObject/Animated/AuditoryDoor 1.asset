@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: AuditoryDoor
-  m_EditorClassIdentifier: Assembly-CSharp::AuditoryDoor
+  m_Script: {fileID: 11500000, guid: 55ee99e4cb8e1c1479e01e81e73b7ae4, type: 3}
+  m_Name: AuditoryDoor 1
+  m_EditorClassIdentifier: 
   _controller: {fileID: 9100000, guid: 5e0ab9fc64f9ce84bb03d8f4f8fb845f, type: 2}
   ObjectName: "\uC9D1\uD68C\uB2F9 \uBB38"
-  Description: "\uC9D1\uD68C\uB2F9\uC73C\uB85C \uD5A5\uD558\uB294 \uBB38. \uD0A4\uD328\uB4DC\uB85C
-    \uC5F4\uB9AC\uB294\uB4EF \uD558\uB2E4."
+  Description: "\uC9D1\uD68C\uB2F9\uC73C\uB85C \uD1B5\uD558\uB294 \uBB38. \uD0A4\uD328\uB4DC\uB97C
+    \uD1B5\uD574 \uC7A0\uACA8\uC788\uB294\uB4EF \uD558\uB2E4."
+  DoorTag: 0
   IsLock: 1
   IsOpen: 0

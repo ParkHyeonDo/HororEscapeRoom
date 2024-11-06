@@ -1837,22 +1837,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065452423247785158, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
-      propertyPath: onAccessGranted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4075219034398024200}
-    - target: {fileID: 1065452423247785158, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
-      propertyPath: onAccessGranted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Temp
+    - target: {fileID: 1211531353242784424, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1065452423247785158, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
-      propertyPath: onAccessGranted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AnimatedObject, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1271299176494957908, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
-      propertyPath: Data
-      value: 
-      objectReference: {fileID: 11400000, guid: 0c94c2add50859c4e937cf12fe05af02, type: 2}
     - target: {fileID: 5308635912446891440, guid: 50f705c2120e4474f99ad8ab10e789a9, type: 3}
       propertyPath: m_Name
       value: Asylum

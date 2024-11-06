@@ -12,6 +12,7 @@ public class LogicChair : InteractableObject
 
     public override void Interact()
     {
+        if(_auditorium.IsPlaying == true)
         _auditorium.Input.Enqueue(_answer);
     }
 }

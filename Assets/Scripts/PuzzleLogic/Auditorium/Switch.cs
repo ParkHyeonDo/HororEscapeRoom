@@ -26,10 +26,11 @@ public class Switch : InteractableObject
         }
         else if(_starter == true && GameManager.Instance.Auditorium.IsPlaying == true)
         {
-            _description = $"<b>작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다.</b>";
+            _description = $"<color=#FF0000><b>작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다. 작동하지 않는다.</b></color>";
         }
         else if(_starter == true && GameManager.Instance.Auditorium.IsPlaying == false)
         {
+            _description = $"<b>{Data.ObjectName}</b>\n{Data.Description}";
             if (_target.activeSelf)
             {
                 _target.SetActive(false);

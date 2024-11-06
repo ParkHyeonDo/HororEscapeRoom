@@ -5,8 +5,8 @@ using UnityEngine;
 public class Door : AnimatedData
 {
     private Animator _animator;
-    public bool IsLock;
-    public bool IsOpen;
+    public bool IsLock = false;
+    public bool IsOpen = false;
 
     public override void Interact(Animator animator)
     {
@@ -62,7 +62,6 @@ public class Door : AnimatedData
             return;
         }
     }
-
     private void UnlockDoor()
     {
         if (IsLock == true) 

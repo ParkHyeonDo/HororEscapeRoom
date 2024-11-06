@@ -11,14 +11,15 @@ public class AuditoriumPuzzle : MonoBehaviour
     private WaitForSeconds few = new WaitForSeconds(1f);
     private WaitForSeconds waitLong = new WaitForSeconds(5f);
     public bool IsPlaying;
+    public GameObject Projector;
+    public AnimatedObject Door;
+    private Animator _animator;
+    [Header("Note Reward")]
+    [SerializeField] private Transform _transform;
+    [SerializeField] private GameObject _note;
 
     public Light ProjectorLight;
     public List<Color> _color;
-
-    private void Awake()
-    {
-        //GameManager.Instance.Auditorium = this;
-    }
 
     private void Start()
     {
@@ -32,15 +33,24 @@ public class AuditoriumPuzzle : MonoBehaviour
     {
         int gamecount = 0;
         ProjectorLight.color = Color.white;
-        yield return wait;
         IsPlaying = true;
+        AudioManager.Instance.PlayBGM("SpookTensionUp");
+        if (Door.Data.GetType() == typeof(Door))
+        {
+            _animator = Door.GetComponent<Animator>();
+            Door data = (Door)Door.Data;
+            data.IsOpen = false;
+            data.IsLock = true;
+            _animator.SetBool("isOpen", false);
+        }
+        yield return wait;
         while (IsPlaying == true)
         {
             int collectValue = Random.Range(0, _color.Count);
             _collect.Add(collectValue);
-            foreach (int collect in _collect)
+            for(int i = 0; i < _collect.Count; i++)
             {
-                ProjectorLight.color = _color[collectValue];
+                ProjectorLight.color = _color[_collect[i]];
                 AudioManager.Instance.PlaySfx("Beep0.5s");
                 yield return wait;
             }
@@ -56,18 +66,33 @@ public class AuditoriumPuzzle : MonoBehaviour
                     }
                     else
                     {
-                        //점프 스케어
-                        //정신력 감소
+                        Projector.SetActive(true);
+                        AudioManager.Instance.PlaySfx("PianoJumpScare");
+                        yield return few;
+                        Projector.SetActive(false);
+                        Input.Clear();
+                        _collect.Clear();
+                        gamecount = 0;
+                        break;
                     }
                 }
                 yield return few;
             }
-            if (gamecount == 4)
+            if (gamecount > 3)
             {
                 IsPlaying = false;
+                if (Door.Data.GetType() == typeof(Door))
+                {
+                    Door data = (Door)Door.Data;
+                    data.IsLock = false;
+                    AudioManager.Instance.PlayBGM("ChangeChapter");
+                    // 노트 생성
+                    Instantiate<GameObject>(_note, _transform.position, Quaternion.Euler(90f,0f,0f));
+                }
                 StopCoroutine(StartPuzzle());
+                break;
             }
-            yield return few;
+            yield return null;
         }
     }
 

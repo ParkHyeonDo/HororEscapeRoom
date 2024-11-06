@@ -17,6 +17,7 @@ public class HintUI : MonoBehaviour
     public Dictionary<int, (string noteName, string content)> hintDictionary = new Dictionary<int, (string, string)>();
 
     public int currentNoteIndex; // 현재 선택된 노트의 인덱스
+    public InteractableData Data;
 
     void Start()
     {

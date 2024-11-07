@@ -81,7 +81,7 @@ public class AuditoriumPuzzle : MonoBehaviour
                 }
                 yield return few;
             }
-            if (gamecount > 3)
+            if (gamecount > 5)
             {
                 IsPlaying = false;
                 if (Door.Data.GetType() == typeof(AuditoryDoor))

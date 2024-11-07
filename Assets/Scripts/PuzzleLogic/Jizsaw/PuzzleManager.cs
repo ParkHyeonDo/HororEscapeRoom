@@ -15,7 +15,6 @@ public class PuzzleManager : MonoBehaviour
 
     private void Awake()
     {
-
         Instance = this;
         gameObject.SetActive(false);
     }
@@ -42,9 +41,9 @@ public class PuzzleManager : MonoBehaviour
     {
      
         boxCollider.enabled = false;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         ResetCursor(); 
-        PauseState(false); 
+        //PauseState(false); 
         
     }
     public void OpenPuzzle(GameObject gameObject)

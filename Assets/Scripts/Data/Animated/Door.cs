@@ -42,7 +42,7 @@ public class Door : AnimatedData
                     AudioManager.Instance.PlaySfx("LockedDoorOpen");
                     _animator.SetBool("isLock", IsLock);
                     GameManager.Instance.Player.QuickSlot.RemoveItem();
-                    _key = null;
+                    
                     if (QuestManager.Instance.CurQuestIndex == 0)
                     {
                         Debug.Log("퀘스트 0 완료");

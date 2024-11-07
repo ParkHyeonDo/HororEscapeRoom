@@ -42,6 +42,11 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void MakeAudioPool()
     {
         _sfxQueue = new Queue<GameObject>();

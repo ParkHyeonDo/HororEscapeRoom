@@ -48,6 +48,7 @@ public class Door : AnimatedData
                         Debug.Log("퀘스트 0 완료");
                         QuestManager.Instance.QuestClearCheck(0);
                     }
+                    GameManager.Instance.Player.HandItemData = null;
                     return;
                 }
             }

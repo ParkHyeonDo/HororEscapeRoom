@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: PaperInGatehouse
   m_EditorClassIdentifier: 
   ObjectName: 
-  Description: "PASSWORD: ! @ # $\n 6 8  4 3\n ! = 3\n @ + # = 12\n$ * @ = # * !\n$
-    + # = 7"
+  Description: "PASSWORD: ! @ # $\n \n ! = 3\n @ + # = 12\n$ * @ = # * !\n$ + # =
+    7"
+  Content: 
+  isHint: 0
+  isPuzzle: 0

@@ -15,9 +15,8 @@ public class AuditoriumPuzzle : MonoBehaviour
     public AnimatedObject Door;
     private Animator _animator;
     [Header("Note Reward")]
-    [SerializeField] private Transform _transform;
     [SerializeField] private GameObject _note;
-    [SerializeField] private GameObject _keyPrefabs;
+    [SerializeField] private GameObject _key;
 
     public Light ProjectorLight;
     public List<Color> _color;
@@ -30,6 +29,8 @@ public class AuditoriumPuzzle : MonoBehaviour
         _color.Add(Color.blue);
         _color.Add(Color.black);
         GameManager.Instance.Auditorium = this;
+        _note.SetActive(false);
+        _key.SetActive(false);
     }
 
     public IEnumerator StartPuzzle()
@@ -70,7 +71,7 @@ public class AuditoriumPuzzle : MonoBehaviour
                     else
                     {
                         Projector.SetActive(true);
-                        AudioManager.Instance.PlaySfx("PianoJumpScare");
+                        AudioManager.Instance.PlaySfx("LoudJumpScare");
                         yield return few;
                         Projector.SetActive(false);
                         Input.Clear();
@@ -81,7 +82,7 @@ public class AuditoriumPuzzle : MonoBehaviour
                 }
                 yield return few;
             }
-            if (gamecount > 3)
+            if (gamecount > 5)
             {
                 IsPlaying = false;
                 if (Door.Data.GetType() == typeof(AuditoryDoor))
@@ -90,8 +91,8 @@ public class AuditoriumPuzzle : MonoBehaviour
                     data.IsLock = false;
                     AudioManager.Instance.PlayBGM("ChangeChapter");
                     // 노트 생성
-                    Instantiate<GameObject>(_note, _transform.position, Quaternion.Euler(90f,0f,0f));
-                    Instantiate<GameObject>(_keyPrefabs, _transform.position, Quaternion.Euler(90f, 0f, 0f));
+                    _note.SetActive(true);
+                    _key.SetActive(true);
                     QuestManager.Instance.QuestClearCheck(2);
                 }
                 StopCoroutine(StartPuzzle());

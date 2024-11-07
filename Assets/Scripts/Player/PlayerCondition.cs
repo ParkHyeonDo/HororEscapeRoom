@@ -50,9 +50,8 @@ public class PlayerCondition : MonoBehaviour
     {
         // 점프스퀘어를 만났을 때 멘탈 감소
 
-
         //배터리 전부 소진시 멘탈 감소
-        if (Battery.CurValue == 0)
+        if (Battery.CurValue == 0 || !GameManager.Instance.Player.Controller.IsLightOn)
         {
             Mental.Subtract(amount*Time.deltaTime);
         }
@@ -68,9 +67,9 @@ public class PlayerCondition : MonoBehaviour
     public void RecoverMental(float amount)
     {
         //회복조건은 조금더 생각해 보아야 될수도?
-        if (Battery.CurValue > 0)
+        if (Battery.CurValue > 0 && GameManager.Instance.Player.Controller.IsLightOn)
         {
-            Mental.Add(amount);
+            Mental.Add(amount * Time.deltaTime);
         }
 
     }

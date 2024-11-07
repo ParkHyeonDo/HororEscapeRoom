@@ -35,12 +35,16 @@ public class Door : AnimatedData
         {
             if (GameManager.Instance.Player.HandItemData?.GetType() == typeof(Key))
             {
+
                 _key = (Key)GameManager.Instance.Player.HandItemData;
                 if (_key.Tag  ==  DoorTag)
                 {
                     IsLock = false;
+                    
                     AudioManager.Instance.PlaySfx("LockedDoorOpen");
                     _animator.SetBool("isLock", IsLock);
+                    GameManager.Instance.Player.QuickSlot.UnEquipShow(GameManager.Instance.Player.HandItemData);
+                    GameManager.Instance.Player.QuickSlot.CurEquipShow(GameManager.Instance.Player.QuickSlot.Slots[0].Data);
                     GameManager.Instance.Player.QuickSlot.RemoveItem();
                     
                     if (QuestManager.Instance.CurQuestIndex == 0)
@@ -48,7 +52,9 @@ public class Door : AnimatedData
                         Debug.Log("퀘스트 0 완료");
                         QuestManager.Instance.QuestClearCheck(0);
                     }
+                    
                     GameManager.Instance.Player.HandItemData = null;
+                    GameManager.Instance.Player.Equipment.EquipNew(GameManager.Instance.Player.QuickSlot.Slots[0].Data);
                     return;
                 }
             }

@@ -635,6 +635,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3128467019759040621, guid: 83d7a15dd950ae04798cfae6a0938c6d, type: 3}
+      propertyPath: m_text
+      value: Ward of Silence
+      objectReference: {fileID: 0}
     - target: {fileID: 4063454064813121439, guid: 83d7a15dd950ae04798cfae6a0938c6d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

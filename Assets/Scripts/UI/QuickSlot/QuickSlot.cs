@@ -152,7 +152,7 @@ public class QuickSlot : MonoBehaviour
 
 
 
-    private void CurEquipShow(ItemData data) 
+    public void CurEquipShow(ItemData data) 
     {
         if (data == null) return;
         for (int i = 0; i < Slots.Length; i++)         
@@ -165,7 +165,7 @@ public class QuickSlot : MonoBehaviour
         
     }
 
-    private void UnEquipShow(ItemData data)
+    public void UnEquipShow(ItemData data)
     {
         if (data == null)  return; 
         for (int i = 0; i < Slots.Length; i++)

@@ -168,8 +168,6 @@ public class QuickSlot : MonoBehaviour
     private void UnEquipShow(ItemData data)
     {
         if (data == null)  return; 
-        //else if (Slots[0].Data == data && Slots[1].Data == null) return; 
-        
         for (int i = 0; i < Slots.Length; i++)
         {
             if (Slots[i].Data == data)

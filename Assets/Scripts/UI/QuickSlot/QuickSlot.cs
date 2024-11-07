@@ -62,6 +62,7 @@ public class QuickSlot : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             ItemData _data = GameManager.Instance.Player.HandItemData;
+            UnEquipShow(_data);
             if (_data == null) return;
             ItemData _newData = null;
             for (int i = 0; i < Slots.Length; i++)
@@ -87,7 +88,7 @@ public class QuickSlot : MonoBehaviour
                 }
             }
             GameManager.Instance.Player.Equipment.EquipNew(_newData);
-
+            CurEquipShow(_newData);
         }
     }
 
@@ -96,6 +97,7 @@ public class QuickSlot : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             ItemData _data = GameManager.Instance.Player.HandItemData;
+            UnEquipShow(_data);
             if (_data == null) return;
             ItemData _newData = null;
             for (int i = Slots.Length-1; i >= 0; i--)
@@ -129,18 +131,52 @@ public class QuickSlot : MonoBehaviour
                 }
             }
             GameManager.Instance.Player.Equipment.EquipNew(_newData);
+            CurEquipShow(_newData);
         }
     }
 
+   
+
     public void ChangeEquip(InputAction.CallbackContext context) 
     {
+        
         if (int.TryParse(context.control.name, out int _new) && context.phase == InputActionPhase.Started) 
         {
-            
+            if(Slots[_new - 1].Data != null) UnEquipShow(GameManager.Instance.Player.HandItemData);
             GameManager.Instance.Player.Equipment.EquipNew(Slots[_new-1].Data);
+            CurEquipShow(Slots[_new - 1].Data);
             _equipNum = _new - 1;
         }
         //## UpdateUI
+    }
+
+
+
+    private void CurEquipShow(ItemData data) 
+    {
+        if (data == null) return;
+        for (int i = 0; i < Slots.Length; i++)         
+        {
+            if (Slots[i].Data == data)
+            {
+                Slots[i].gameObject.transform.localScale = new Vector3((Slots[i].gameObject.transform.localScale.x * 1.2f), (Slots[i].gameObject.transform.localScale.y * 1.2f));
+            }
+        }
+        
+    }
+
+    private void UnEquipShow(ItemData data)
+    {
+        if (data == null)  return; 
+        //else if (Slots[0].Data == data && Slots[1].Data == null) return; 
+        
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            if (Slots[i].Data == data)
+            {
+                Slots[i].gameObject.transform.localScale = new Vector3((Slots[i].gameObject.transform.localScale.x / 1.2f), (Slots[i].gameObject.transform.localScale.y / 1.2f));
+            }
+        }
     }
 
     void AddItem() 
@@ -251,7 +287,6 @@ public class QuickSlot : MonoBehaviour
         
     }
 
-    // 아이템 먹기를 여기서 구현해야 하나 ?
     public string[] GetSlotItemName()
     {
         string[] result = new string[Slots.Length];

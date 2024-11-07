@@ -21,7 +21,9 @@ public class DoorManager : MonoBehaviour
             temp.IsOpen = false;
             Door.GetComponent<AnimatedObject>().Data = temp;
         }
-        DoorsList[0].GetComponent<Door>().IsLock = false;
+        Door firstDoor = (Door)DoorsList[0].GetComponent<AnimatedObject>().Data;
+        firstDoor.IsLock = false;
+        DoorsList[0].GetComponent<AnimatedObject>().Data = firstDoor;
     }
     // Start is called before the first frame update
     public void SetDoorState(bool[] doorStates)

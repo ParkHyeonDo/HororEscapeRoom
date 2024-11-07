@@ -8,6 +8,7 @@ public class InteractableObject: MonoBehaviour, IInteractable
     public InteractableData Data;
     public HintUI hintUI;
     public int noteIndex;
+    public GameObject hintObject;
 
     private void Start()
     {
@@ -23,10 +24,16 @@ public class InteractableObject: MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
+        if (Data.isHint && hintObject != null)
+        {
+            Data.Interact();
+            hintObject.SetActive(false);
+        }
         if (hintUI != null)
         {
             hintUI.AddNote(noteIndex, Data.ObjectName, Data.Content, Data.isHint);
             hintUI.DisplayHint(noteIndex);
+            Data.Interact();
         }
         Data.Interact();
     }

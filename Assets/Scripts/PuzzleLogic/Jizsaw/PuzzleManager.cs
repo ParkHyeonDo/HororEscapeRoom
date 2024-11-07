@@ -35,7 +35,7 @@ public class PuzzleManager : MonoBehaviour
         yield return new WaitForSeconds(autoCloseDelay); // 설정한 시간만큼 대기
         ClosePuzzle(completedPuzzle);                    // 완료 UI 닫기
         ResetCursor();                                   // 커서를 원래 상태로 복원
-        PauseState(false);                               // 플레이어 시야 회전 재개
+        PauseState(true);                               // 플레이어 시야 회전 재개
     }
 
     public void ClosePuzzle(GameObject gameObject)
@@ -77,14 +77,14 @@ public class PuzzleManager : MonoBehaviour
     private void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     // 커서를 다시 잠그고 숨김
     private void ResetCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
     // 플레이어의 시야 회전을 일시 정지하거나 재개

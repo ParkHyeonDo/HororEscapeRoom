@@ -25,26 +25,22 @@ public class PuzzleManager : MonoBehaviour
         {
             puzzleCompleted = true;
             completedPuzzle.SetActive(true);
-            StartCoroutine(AutoClosePuzzle()); // 퍼즐 완료 후 자동으로 닫힘
-        }
-    }
 
-    IEnumerator AutoClosePuzzle()
-    {
-        yield return new WaitForSeconds(autoCloseDelay); // 설정한 시간만큼 대기
-        ClosePuzzle(completedPuzzle);                    // 완료 UI 닫기
-        ResetCursor();                                   // 커서를 원래 상태로 복원
-        PauseState(true);                               // 플레이어 시야 회전 재개
+        }
     }
 
     public void ClosePuzzle(GameObject gameObject)
     {
-     
-        boxCollider.enabled = false;
-        //gameObject.SetActive(false);
+
+        gameObject.SetActive(false);
         ResetCursor(); 
-        //PauseState(false); 
+        PauseState(false); 
         
+    }
+    public void EnabledBox(GameObject gameObject)
+    {
+        boxCollider.enabled = false;
+
     }
     public void OpenPuzzle(GameObject gameObject)
     {

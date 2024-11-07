@@ -50,6 +50,7 @@ public class QuestManager : MonoBehaviour
 
     public bool QuestClearCheck(int questID)
     {
+        Debug.Log("Ã¼Å© ½ÇÇàµÊ");
         if(questID == QuestDataList[CurQuestIndex].QuestId)
         {
             CurQuestIndex++;

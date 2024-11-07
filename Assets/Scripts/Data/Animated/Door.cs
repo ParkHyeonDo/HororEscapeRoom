@@ -43,6 +43,11 @@ public class Door : AnimatedData
                     _animator.SetBool("isLock", IsLock);
                     GameManager.Instance.Player.QuickSlot.RemoveItem();
                     _key = null;
+                    if (QuestManager.Instance.CurQuestIndex == 0)
+                    {
+                        Debug.Log("퀘스트 0 완료");
+                        QuestManager.Instance.QuestClearCheck(0);
+                    }
                     return;
                 }
             }

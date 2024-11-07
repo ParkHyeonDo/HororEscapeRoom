@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5197f92f540e84e9fe4a5e962a50c1, type: 3}
+  m_Name: Item_Note
+  m_EditorClassIdentifier: 
+  ObjectName: "\uCABD\uC9C0"
+  Description: "\uCABD\uC9C0\uC758 \uB0B4\uC6A9"
+  Content: "\"\uC2A4\uBBF8\uC2A4\uC528\uAC00 \uB9C8\uC9C0\uB9C9\uC73C\uB85C \uBCF4\uC600\uB358
+    \uBC29\uC740 \uC624\uB798\uB41C \uC218\uC220\uC2E4\uC774\uC5C8\uC5B4. \uBA87
+    \uB144 \uB3D9\uC548 \uBC29\uCE58\uB41C \uB4EF\uD55C \uADF8 \uBC29\uC5D4 \uB0A1\uC740
+    \uCC45\uACFC \uBB38\uC11C\uB4E4\uC774 \uC5B4\uC9C0\uB7FD\uAC8C \uC313\uC5EC\uC788\uC5C8\uC9C0.
+    \uD558\uC9C0\uB9CC \uADF8\uB140\uAC00 \uB0A8\uAE34 \uB2E8\uC11C\uB294 \uBC14\uB85C
+    \uADF8\uACF3\uC5D0 \uC788\uC5B4. \uC11C\uB78D\uC744 \uC5F4\uC5B4 \uBCF4\uBA74
+    \uADF8\uB140\uC758 \uD754\uC801\uC774 \uB0A8\uC544\uC788\uC744 \uAC70\uC57C.
+    \uD558\uC9C0\uB9CC \uC11C\uB458\uB7EC\uC57C \uD574. \uC774\uACF3\uC5D0 \uC624\uB798
+    \uBA38\uBB3C\uBA74 \uC54C \uC218 \uC5C6\uB294 \uC18C\uB9AC\uAC00 \uC810\uC810
+    \uB354 \uAC00\uAE4C\uC774 \uB2E4\uAC00\uC624\uB294 \uAC78 \uB290\uB084 \uD14C\uB2C8\uAE4C.\""
+  isHint: 1
+  isPuzzle: 0

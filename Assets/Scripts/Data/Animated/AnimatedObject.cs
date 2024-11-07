@@ -18,14 +18,6 @@ public class AnimatedObject : MonoBehaviour, IInteractable
         {
             Animat = this.gameObject.GetComponent<Animator>();
         }
-
-        if(Data.GetType() == typeof(Door) || Data.GetType() == typeof(GatehouseDoor) || Data.GetType() == typeof(AuditoryDoor))
-        {
-            Door data = (Door)Data;
-            data.IsLock = true;
-            data.IsOpen = false;
-            Data = data;
-        }
     }
     public string GetPrompt()
     {
@@ -39,7 +31,7 @@ public class AnimatedObject : MonoBehaviour, IInteractable
 
     public virtual void Temp()
     {
-        if (Data.GetType() == typeof(Door))
+        if (Data.GetType() == typeof(Door) || Data.GetType() == typeof(AuditoryDoor))
         {
             Door data = (Door)Data;
             data.Temp();

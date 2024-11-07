@@ -141,7 +141,6 @@ public class PlayerController : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Started)
         {
-
             OnPause?.Invoke();
             if (EscUI != null)
             {
@@ -150,12 +149,14 @@ public class PlayerController : MonoBehaviour
                     EscUI.ESCUI.SetActive(false);
                     Cursor.lockState = CursorLockMode.Locked;
                     _isPause = false;
+                    Time.timeScale = 1f;
                 }
                 else
                 {
                     EscUI.ESCUI.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     _isPause = true;
+                    Time.timeScale = 0f;
                 }
             }
         }

@@ -6,16 +6,10 @@ public class GameManager : Singleton<GameManager>
     public Player Player;
     public ItemManager ItemManager;
     public AuditoriumPuzzle Auditorium;
+    public DoorManager DoorManager;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        base.Awake();
     }
 }

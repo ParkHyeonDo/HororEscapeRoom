@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1649728889764615397
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 6f93371d5a702a042896b2f813a1f995, type: 2}
   hintUI: {fileID: 0}
   noteIndex: 1
+  hintObject: {fileID: 0}
 --- !u!1 &3457741091468678572
 GameObject:
   m_ObjectHideFlags: 0

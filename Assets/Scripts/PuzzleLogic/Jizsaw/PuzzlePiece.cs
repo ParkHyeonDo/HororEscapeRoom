@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PuzzlePiece : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -45,6 +46,7 @@ public class PuzzlePiece : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         rectTransform.anchoredPosition = targetPosition.anchoredPosition;
         isSnapped = true;
+        this.gameObject.GetComponent<Image>().raycastTarget = false;
     }
 
     private void ResetPosition()
